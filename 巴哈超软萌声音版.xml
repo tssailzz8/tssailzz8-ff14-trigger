@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="f2248b2b-1c1b-45e1-9561-dd1a1cfb1dc9" Name="绝巴哈软萌声音国服版" Enabled="true">
+    <Folders>
+      <Folder Id="485ea5fd-a404-4e32-8703-3f20a3fae092" Name="奈尔机制" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="月环钢铁" Id="686c0064-b830-41bf-9ae4-0053a81b48e5" RegularExpression="月光啊！ 照亮铁血霸道！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/10%E6%9C%88%E7%8E%AF%E9%92%A2%E9%93%81.wav" UseTTSTextExpression="靠近远离" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="月环分摊" Id="baa11de5-fc92-4186-b81f-2c8da6919f47" RegularExpression="月光啊！ 用你的炽热烧尽敌人！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/9%E6%9C%88%E7%8E%AF%E5%88%86%E6%91%8A.wav" UseTTSTextExpression="靠近分摊" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="分摊钢铁" Id="5a0a694e-1f79-4548-8336-ec5a90ef5e43" RegularExpression="被炽热灼烧过的轨迹 乃成铁血霸道！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/1%E5%88%86%E6%91%8A%E9%92%A2%E9%93%81.wav" UseTTSTextExpression="分摊后远离" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="分摊月环" Id="511afa3b-a8cb-47ee-b059-f9f8ce93da15" RegularExpression="炽热燃烧！ 给予我月亮的祝福！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/2%E5%88%86%E6%91%8A%E6%9C%88%E7%8E%AF.wav" UseTTSTextExpression="分摊后月环" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="跳跃钢铁" Id="2e97e770-d3b3-4165-a8fe-dcd078cc11a0" RegularExpression="我降临于此， 征战铁血霸道！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/6%E8%B7%B3%E8%B7%83%E9%92%A2%E9%93%81.wav" UseTTSTextExpression="跳跃远离" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="跳跃月环" Id="a5af947a-d60e-4c34-8fa8-322fb31da2bc" RegularExpression="我降临于此， 对月长啸！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/7%E8%B7%B3%E8%B7%83%E6%9C%88%E7%8E%AF.wav" UseTTSTextExpression="跳跃靠近" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="陨石跳T" Id="8229c45c-6dce-4f81-9316-ca500086ec66" RegularExpression="超新星啊，更加闪耀吧！ 在星降之夜，称赞红月！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/%E9%99%A8%E7%9F%B3%E5%88%86%E6%95%A3%E8%B7%B3T.wav" UseTTSTextExpression="陨石跳T 分散" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="跳T分摊" Id="a99d599f-8d13-4a7a-851a-a686fe40af53" RegularExpression="超新星啊，更加闪耀吧！ 照亮红月下炽热之地！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/5%E8%B7%B3T%E5%88%86%E6%91%8A.wav" UseTTSTextExpression="跳T分摊" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="月环跳跃陨石" Id="92e416ff-f8bf-4fd4-bdda-85f938984138" RegularExpression="我自月而来降临于此， 召唤星降之夜！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/13%E6%9C%88%E7%8E%AF%E8%B7%B3%E8%B7%83%E9%99%A8%E7%9F%B3.wav" UseTTSTextExpression="靠近跳跃陨石 " TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="18.75" TextAuraForeground="Aqua" TextAuraName="SpellNotifierText" TextAuraExpression="靠近跳跃陨石" TextAuraXIniExpression="352" TextAuraYIniExpression="599" TextAuraWIniExpression="209" TextAuraHIniExpression="93" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="跳跃月环陨石" Id="f28b7a2c-83ec-464c-8f29-639ebab4cce4" RegularExpression="我降临于此对月长啸！ 召唤星降之夜！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/8%E8%B7%B3%E8%B7%83%E6%9C%88%E7%8E%AF%E9%99%A8%E7%9F%B3.wav" UseTTSTextExpression="跳跃靠近陨石" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="18.75" TextAuraForeground="Aqua" TextAuraName="SpellNotifierText" TextAuraExpression="跳跃靠近陨石" TextAuraXIniExpression="321" TextAuraYIniExpression="566" TextAuraWIniExpression="205" TextAuraHIniExpression="125" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="被点冰" Id="8d93db5e-793d-4ab6-9cf0-d2de35777129" RegularExpression="15:40012C68:冰爪:26C6:寒冰球:1024058E:Ze">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="别忘了吃火" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="true" Name="月环跳跃分摊" Id="02fb57da-5e98-443f-972f-be32e1e434e0" RegularExpression="我自月而来降临于此， 踏过炽热之地！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/12%E6%9C%88%E7%8E%AF%E8%B7%B3%E8%B7%83%E5%88%86%E6%91%8A.wav" UseTTSTextExpression="靠近跳跃分摊" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="18.75" TextAuraForeground="Aqua" TextAuraName="SpellNotifierText" TextAuraExpression="靠近跳跃分摊" TextAuraXIniExpression="321" TextAuraYIniExpression="566" TextAuraWIniExpression="205" TextAuraHIniExpression="125" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="月环钢铁跳跃" Id="521c4901-b58b-4e21-a4d8-b91cf78379bd" RegularExpression="我自月而来携钢铁降临于此！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/11%E6%9C%88%E7%8E%AF%E9%92%A2%E9%93%81%E8%B7%B3%E8%B7%83.wav" UseTTSTextExpression="靠近远离跳跃" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="18.75" TextAuraForeground="Aqua" TextAuraName="SpellNotifierText" TextAuraExpression="靠近远离跳跃" TextAuraXIniExpression="321" TextAuraYIniExpression="566" TextAuraWIniExpression="205" TextAuraHIniExpression="125" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="钢铁分摊跳跃" Id="dd95ac1f-14b2-4870-9b05-ade2cc91ded0" RegularExpression="钢铁燃烧吧！ 成为我降临于此的刀剑吧！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/3%E9%92%A2%E9%93%81%E5%88%86%E6%91%8A%E8%B7%B3%E8%B7%83.wav" UseTTSTextExpression="远离分摊跳跃" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="18.75" TextAuraForeground="Aqua" TextAuraName="SpellNotifierText" TextAuraExpression="远离分摊跳跃" TextAuraXIniExpression="321" TextAuraYIniExpression="566" TextAuraWIniExpression="205" TextAuraHIniExpression="125" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="钢铁跳跃分摊" Id="02c87239-c13d-4ba8-8e36-d63c3042c84a" RegularExpression="钢铁成为我降临于此的燃烧之剑！">
+            <Actions>
+              <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/4%E9%92%A2%E9%93%81%E8%B7%B3%E8%B7%83%E5%88%86%E6%91%8A.wav" UseTTSTextExpression="远离跳跃分摊" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TextAuraAlignment="MiddleRight" TextAuraEffect="Bold" TextAuraFontSize="18.75" TextAuraForeground="Aqua" TextAuraName="SpellNotifierText" TextAuraExpression="远离跳跃分摊" TextAuraXIniExpression="321" TextAuraYIniExpression="566" TextAuraWIniExpression="205" TextAuraHIniExpression="125" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="ea2518b9-3abe-4729-8779-fb42290a4467" Name="P3自制" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="false" Name="黑洞踩塔" Id="4bbab4a2-8326-44e2-860e-e753e06f78ed" RegularExpression="16:4004BCC1:奈尔·神·达纳斯:26BF" PeriodRefire="Deny" RefirePeriodExpression="10000">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="黑洞踩塔准备" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" RefireInterrupt="True" />
+              <Action OrderNumber="2" UseTTSTextExpression="三" UseTTSRateExpression="5" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="二" UseTTSRateExpression="5" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="1100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" UseTTSTextExpression="一" UseTTSRateExpression="5" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="塔出现" Id="5617f409-32fe-465f-b68c-56bd8d937af6" RegularExpression="14:26DF:至尊巴哈姆特 starts using 百万核爆 on Unknown" PeriodRefire="Deny" RefirePeriodExpression="10000">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="三，二，一" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="5000" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="true" Name="双塔旋风冲" Id="88a8d51d-783c-41f8-9dc7-22bfda7cf409" RegularExpression="14:26B2:双塔尼亚 starts using 旋风冲 on 双塔尼亚">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="旋风旋风" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="03000" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="false" Name="火圈" Id="954c8fa7-62a9-4df0-b004-cbd8545bc89c" RegularExpression="26AD:液体地狱:.*村长牛大壮" PeriodRefire="Deny" RefirePeriodExpression="6000">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="火球点你啦" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="true" Name="死刑，看俯冲" Id="d20c2f60-89e7-49b0-9e71-cad7d7945c1e" RegularExpression="奈尔·神·达纳斯正在发动“凶鸟尖喙”">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="死刑看俯冲" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="true" Name="灾厄散开" Id="1aa4aaa7-d44e-47ee-98f8-5c0c96160ce1" RegularExpression="双塔尼亚:26B1:以太失控" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="散开散开" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="true" Name="凶鸟跳跃" Id="a8338b49-c9ed-46ab-854f-e3dfc6e98ce4" RegularExpression="奈尔·神·达纳斯:26BE:凶鸟冲">
+            <Actions>
+              <Action OrderNumber="1" SystemBeepFreqExpression="500" SystemBeepLengthExpression="300" UseTTSTextExpression="跳了" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="false" Name="天地鸟姐位置中" Id="67704842-adf1-4635-b9de-b8d0ada06145" RegularExpression="0000:C2F7:0029:0000:0000:0000">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="鸟姐中间" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="false" Name="天地鸟姐两边" Id="d2b3aa42-b1ba-4070-8265-60c91e4c60d0" RegularExpression="0000:0000:0029:0000:0000:0000">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="鸟姐两边" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="false" Name="字幕测试" Id="9dcd4420-5600-4b49-90ac-28de1a799dc9" RegularExpression="字幕测试">
+            <Actions>
+              <Action OrderNumber="1" TextAuraFontSize="15.75" TextAuraForeground="Yellow" TextAuraExpression="占" TextAuraXIniExpression="1300" TextAuraYIniExpression="77" TextAuraWIniExpression="77" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="宋体" ActionType="TextAura" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="true" Name="百万核爆" Id="b1907312-1952-4908-942e-019c2a7bec7e" RegularExpression="奈尔·神·达纳斯正在咏唱“百万核爆”">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="百万核爆" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+          <Trigger Enabled="false" Name="百京核爆" Id="0eed09d5-8bec-4058-8a50-89ac8194e451" RegularExpression="至尊巴哈姆特正在发动“百京核爆”">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="地火出现" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000" RefireInterrupt="True" />
+            </Actions>
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="旋风" Id="4d4d18d1-373d-4950-98a1-9e68858bffd8" RegularExpression="^.{14} 14:26AA">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="旋风 旋风" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True" />
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="false" Name="月环" Id="a1b0194b-adc5-4225-b432-2327a5f495c5" RegularExpression="26BC">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="靠近 靠近" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="魔力压缩" Id="895406ce-0420-4a30-9179-d7d1b8633b00" RegularExpression="^\[..:..:..\....\] 1B:.+:(?&lt;name&gt;[^:]*):0000:.+:0076:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/20%E9%AD%94%E5%8A%9B%E5%8E%8B%E7%BC%A9%E7%82%B9%E5%90%8D.wav" UseTTSTextExpression="魔力压缩" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="巴哈俯冲" Id="3de55303-6591-4552-8cdf-d82943a29e3b" RegularExpression="^\[..:..:..\....\] 1B:.+:(?&lt;name&gt;[^:]*):0000:.+:0029:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/4%E5%B7%B4%E5%93%88%E5%A7%86%E7%89%B9-%E5%86%B2%E5%86%B2%E5%86%B2%EF%BC%88%E5%B7%B4%E5%93%88%E4%BF%AF%E5%86%B2%EF%BC%89.wav" UseTTSTextExpression="巴哈俯冲" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="火分摊" Id="63681e3a-2648-4e43-b5f2-b0bc710869cd" RegularExpression="^\[..:..:..\....\] 1B:.+:(?&lt;name&gt;[^:]*):0000:.+:0075:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/18%E7%81%AB%E5%88%86%E6%91%8A%E7%82%B9%E5%90%8D.wav" UseTTSTextExpression="火分摊" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="奈尔俯冲" Id="810d24ac-564a-4a78-968c-b4cd792e9ec3" RegularExpression="^\[..:..:..\....\] 1B:.+:(?&lt;name&gt;[^:]*):0000:.+:0077:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/3%E5%A5%88%E5%B0%94-%E5%86%B2%E5%86%B2%E5%86%B2%EF%BC%88%E5%A5%88%E5%B0%94%E4%BF%AF%E5%86%B2%EF%BC%89.wav" UseTTSTextExpression="奈尔俯冲" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="双塔俯冲" Id="43e97219-6b4c-4a02-959a-442a1575eeef" RegularExpression="^\[..:..:..\....\] 1B:.+:(?&lt;name&gt;[^:]*):0000:.+:002A:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/2%E5%8F%8C%E5%A1%94%E5%B0%BC%E4%BA%9A-%E5%86%B2%E5%86%B2%E5%86%B2%EF%BC%88%E5%8F%8C%E5%A1%94%E4%BF%AF%E5%86%B2%EF%BC%89.wav" UseTTSTextExpression="双塔俯冲" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="false" Name="雷点名" Id="aba9ad7f-fb06-48f5-a401-5edfbeb4b789" RegularExpression="^\[..:..:..\....\] 16:4000595D:.*?:26C7:.*?:.*?:(?&lt;name&gt;[^:]*):">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/19%E9%9B%B7%E7%82%B9%E5%90%8D.wav" UseTTSTextExpression="雷点名" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="小龙俯冲" Id="67861412-a8bb-4104-b698-30ae81d406b1" RegularExpression="^\[..:..:..\....\] 1B:.+:(?&lt;name&gt;[^:]*):0000:.+:0014:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/1%E5%B0%8F%E9%BE%99-%E5%86%B2%E5%86%B2%E5%86%B2%EF%BC%88%E5%B0%8F%E9%BE%99%E4%BF%AF%E5%86%B2%EF%BC%89.wav" UseTTSTextExpression="小龙俯冲" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="百万核爆分摊" Id="2480f6f9-cff1-4cad-89b1-f1d79155c0c3" RegularExpression="^\[..:..:..\....\] 1B:.+:(?&lt;name&gt;[^:]*):0000:E11E:0027:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/16%E7%99%BE%E4%B8%87%E6%A0%B8%E7%88%86%E5%88%86%E6%91%8A2.wav" UseTTSTextExpression="核爆分摊" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="地震点名" Id="6de5741c-05e1-473a-9995-54144cbf1660" RegularExpression="^\[..:..:..\....\] 1B:.+:(?&lt;name&gt;[^:]*):0000:0000:0028:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/17%E5%9C%B0%E9%9C%87%E7%82%B9%E5%90%8D.wav" UseTTSTextExpression="地震点名" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="死亡宣告-第二" Id="bf644b53-5585-4d4a-94b8-33c47067dae8" RegularExpression="^\[..:..:..\....\] 1A:(?&lt;name&gt;[^.]*) gains the effect of (Doom|死の宣告|死亡宣告) from.*?for 10\.00 Seconds">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/24%E6%AD%BB%E4%BA%A1%E5%AE%A3%E5%91%8A10%E7%A7%92.wav" UseTTSTextExpression="死宣二二二" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="死亡宣告-第三" Id="402f5d21-fc0d-4360-9d83-1da90fece40b" RegularExpression="^\[..:..:..\....\] 1A:(?&lt;name&gt;[^.]*) gains the effect of (Doom|死の宣告|死亡宣告) from.*?for 16\.00 Seconds">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/25%E6%AD%BB%E4%BA%A1%E5%AE%A3%E5%91%8A16%E7%A7%92.wav" UseTTSTextExpression="死宣三三三" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="死亡宣告-第一" Id="71f8a1cc-7fa2-4d3b-ac05-e939af7b10f0" RegularExpression="^\[..:..:..\....\] 1A:(?&lt;name&gt;[^.]*) gains the effect of (Doom|死の宣告|死亡宣告) from.*?for 6\.00 Seconds">
+        <Actions>
+          <Action OrderNumber="1" PlaySoundFileExpression="https://gitee.com/zhu_jun_long/bach-voice/raw/master/23%E6%AD%BB%E4%BA%A1%E5%AE%A3%E5%91%8A6%E7%A7%92.wav" UseTTSTextExpression="死宣一一一" TextAuraFontSize="0" ActionType="PlaySound" RefireInterrupt="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="false" Name="火球" Id="99379b82-f280-4a4d-a718-e1c8adc30c8a" RegularExpression="火角:26C5:烈火球:[a-zA-Z 0-9]+:(?&lt;playerName&gt;.*?);">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="火球点你" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${playerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>

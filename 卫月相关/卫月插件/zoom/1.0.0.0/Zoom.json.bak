@@ -1,0 +1,12 @@
+{
+  "Author": "NR",
+  "Name": "Zoom",
+  "Description": "Set max zoom",
+  "InternalName": "Zoom",
+  "AssemblyVersion": "1.0.0.0",
+  "RepoUrl": "",
+  "ApplicableVersion": "any",
+  "DalamudApplicableVersion": ">=4.9.8.3",
+  "DalamudApiLevel": "1",
+  "Tags": ["Zoom"]
+}

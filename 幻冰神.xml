@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="f1804d87-d4b4-4b50-a6e6-b13e7670e2c4" ZoneFilterRegularExpression="希瓦歼殛战" Name="幻冰神" Enabled="true">
+    <Folders />
+    <Triggers>
+      <Trigger Enabled="true" Name="冰河怒击" Id="dadc3e3c-b1b1-4d4c-84bb-2d1ae216e69a" RegularExpression="^.{14} 14:5376:">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="靠近" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:${var:Set_Catfish_postman_port}/command" JsonPayloadExpression="/p 远离正面" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="冰地板" Id="a32d3e72-7508-40b8-a6af-8b1ba532eb55" RegularExpression="^.{14} 14:5369:">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="注意冰地板" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="弓击退" Id="841744d5-edae-40fb-8e5a-5982f59c72bd" RegularExpression="1B:(.*):(?&lt;RoleName&gt;[^.]*):(?:[^:]*:){2}001A:0000:0000:0000:">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="注意击退点名" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${RoleName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="杖形态" Id="bcd55575-c2c9-4fa9-a2da-5b5981351b3b" RegularExpression="1B:(.*):(?&lt;RoleName&gt;[^.]*):(?:[^:]*:){2}001D:0000:0000:0000:" RefirePeriodExpression="1">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="快分散" UseTTSRateExpression="+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${RoleName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="弓形态" Id="cda2489a-07ec-48e8-ab6d-34dd3c68841f" RegularExpression="^.{14} 14:53(68|75):">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="去背后" UseTTSRateExpression="+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tbuff" Id="50ead98e-de33-42d1-a8fd-f4f07c81954b" RegularExpression="(&lt;type&gt;26|30)\|(?&lt;time&gt;[^|]*)\|23(?&lt;effectid&gt;C|D)\|(?&lt;effect&gt;[^|]*)\|(?&lt;duration&gt;[^|]*)\|(?&lt;sourceid&gt;[^|]*)\|(?&lt;source&gt;[^|]*)\|(?&lt;playerid&gt;[^|]*)\|(?&lt;player&gt;[^|]*)\|">
+        <Actions>
+          <Action OrderNumber="0" VariableOp="SetString" VariableName="斩耐buff" VariableExpression="0" TextAuraFontSize="17.25" TextAuraForeground="#80FFFF" TextAuraName="7" TextAuraExpression="重抽" TextAuraXIniExpression="453" TextAuraYIniExpression="669" TextAuraWIniExpression="80" TextAuraHIniExpression="50" TextAuraOIniExpression="100" TextAuraFontName="微软雅黑" ActionType="Variable" RefireInterrupt="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="30" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <ConditionGroup Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${effectid}" ExpressionTypeL="String" ExpressionR="C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${effectid}" ExpressionTypeL="String" ExpressionR="D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </ConditionGroup>
+              </ConditionGroup>
+            </Condition>
+          </Action>
+          <Action OrderNumber="1" VariableOp="SetString" VariableName="斩耐buff" VariableExpression="1" TextAuraFontSize="17.25" TextAuraForeground="#80FFFF" TextAuraName="7" TextAuraExpression="重抽" TextAuraXIniExpression="453" TextAuraYIniExpression="669" TextAuraWIniExpression="80" TextAuraHIniExpression="50" TextAuraOIniExpression="100" TextAuraFontName="微软雅黑" ActionType="Variable" RefireInterrupt="True">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="26" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                <ConditionGroup Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${effectid}" ExpressionTypeL="String" ExpressionR="C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${effectid}" ExpressionTypeL="String" ExpressionR="D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </ConditionGroup>
+              </ConditionGroup>
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="死刑" Id="9e8eac8b-b721-4d0c-b380-ab0b125cefa1" RegularExpression="^.{14} 14:536(6|7):">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="换t" UseTTSRateExpression="+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="斩耐buff" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="绝对零度" Id="6be890d3-da03-4aaf-83c2-5cf30b4892ea" RegularExpression="^.{14} 14:5370:">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="注意冰地板" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="分摊死刑" Id="756ae490-eb42-47bc-92d6-da6df706825b" RegularExpression="^.{14} 14:5366:">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="马上分摊死刑" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:次数}" ExpressionTypeL="String" ExpressionR="[1235]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="次数" VariableExpression="${var:次数}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="100">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="冰柱" Id="ad6ebb8e-02f4-49c5-ac1f-de7ae730850c" RegularExpression="^.{14} 15:4[0-9A-F]{7}:(?&lt;source&gt;[^:]*):537B(?:[^:]*:){35}(?&lt;x&gt;[^:]*):(?&lt;y&gt;[^:]*)" PeriodRefire="Deny" RefirePeriodExpression="10000">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="去中间" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="x" ExpressionTypeL="String" ExpressionR="0.1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+          <ConditionSingle Enabled="true" ExpressionL="y" ExpressionTypeL="String" ExpressionR="0.1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="团灭初始化" Id="2e8589e4-1a38-4fcc-8876-227f96d5d281" RegularExpression="01:Change|\] 21:........:40000010:00:00:00:00|任务开始|has begun\.|距离战斗开始还有5秒！">
+        <Actions>
+          <Action OrderNumber="1" VariableName="次数" VariableExpression="${var:次数}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="100">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>

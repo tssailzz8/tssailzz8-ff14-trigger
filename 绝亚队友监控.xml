@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="0bd1e215-4213-4c7e-851c-dd95b56a1e5e" Name="绝亚队伍监控" Enabled="false">
+    <Folders>
+      <Folder ZoneFilterEnabled="True" Id="74138422-c13a-43e1-8492-3caa9fcd60a6" ZoneFilterRegularExpression="亚历山大绝境战" Name="绝亚P4 1测 2测所有点名公屏显示" Enabled="true">
+        <Folders>
+          <Folder Id="d416e1c8-ee07-4e8b-b2c6-b7bcae203c34" Name="向队伍发送麻将号码" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="false" Name="麻将号码" Id="391fa2d4-f5b1-498f-a8fc-a99aa66069f4" RegularExpression="] 1B:1[0-9A-Z]{7}:(?&lt;player&gt;.*?):(?:[^:]*:){2}(?&lt;shadow_id&gt;.*?):0000:0000:0000:" PeriodRefire="Deny" RefirePeriodExpression="3000">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p  ${var:shadow_name[${numeric:${var:shadow_id_min}-0}]}  1号" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="1000">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p  ${var:shadow_name[${numeric:${var:shadow_id_min}+1}]}  2号" MessageBoxText="${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="20">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p  ${var:shadow_name[${numeric:${var:shadow_id_min}+2}]}  3号" MessageBoxText="${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="20">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p  ${var:shadow_name[${numeric:${var:shadow_id_min}+3}]}  4号" MessageBoxText="${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="20">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p  ${var:shadow_name[${numeric:${var:shadow_id_min}+4}]}  5号" MessageBoxText="${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="20">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p  ${var:shadow_name[${numeric:${var:shadow_id_min}+5}]}  6号" MessageBoxText="${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="20">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p  ${var:shadow_name[${numeric:${var:shadow_id_min}+6}]}  7号" MessageBoxText="${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="10">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p  ${var:shadow_name[${numeric:${var:shadow_id_min}+7}]}  8号" MessageBoxText="${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="10">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="391fa2d4-f5b1-498f-a8fc-a99aa66069f4" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="false" Name="幻影观测α 所有点名(死人均为分摊)" Id="f127a648-f116-415e-847b-25cdb0b16e16" RegularExpression="] 23:1[0-9A-F]{7}:(?&lt;player&gt;.*?):4(?&lt;shadow_id&gt;[0-9A-F]{7}?):.*?:0000:0000:0062:4[0-9A-F]{7}:000F:" Scheduling="FromRefirePeriod" PeriodRefire="Deny" RefirePeriodExpression="3000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p ------------------------------------------------------" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="2000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-1}]}  大圈大圈" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="9">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-2}]}     ${var:shadow_name[${numeric:${var:shadow_id_max}-3}]}     ${var:shadow_name[${numeric:${var:shadow_id_max}-4}]}     闪电闪电 人群左侧" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}     ${var:shadow_name[${numeric:${var:shadow_id_max}-5}]}     ${var:shadow_name[${numeric:${var:shadow_id_max}-6}]}     ${var:shadow_name[${numeric:${var:shadow_id_max}-7}]}     分摊分摊 人群右侧" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="20">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p ------------------------------------------------------" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="30">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="false" Name="幻影观测β 所有点名(死人均为小光)" Id="d22ac159-a128-44ed-afb5-6390cd44a570" RegularExpression="] 23:1[0-9A-F]{7}:(?&lt;player&gt;.*?):4(?&lt;shadow_id&gt;[0-9A-F]{7}?):.*?:0000:0000:0062:4[0-9A-F]{7}:000F:" Scheduling="FromRefirePeriod" PeriodRefire="Deny" RefirePeriodExpression="3000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p ------------------------------------------------------" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="2000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-3}]}     ${var:shadow_name[${numeric:${var:shadow_id_max}-5}]}     ${var:shadow_name[${numeric:${var:shadow_id_max}-7}]}     小黄小黄 B点上方集合" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="9">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-1}]}     大黄大黄 A点外侧" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-6}]}     蓝线小黑 去B点下方" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="20">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-4}]}     红绿小黑 去B点上方" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="30">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-2}]}     小黑小黑 1和2之间" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="40">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p     ${var:shadow_name[${numeric:${var:shadow_id_max}-0}]}     大黑大黑 B点贴边" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p ------------------------------------------------------" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="60">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="P1开场自动标点（不用可以不点）" Id="857142ad-14ed-4c65-ab2d-a4bd16d1ce9b" RegularExpression="距离战斗开始还有10秒！">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;绝亚&quot;,&quot;A&quot;:{&quot;X&quot;:99.918,&quot;Y&quot;:0.0,&quot;Z&quot;:87.889,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:112.196,&quot;Y&quot;:0.0,&quot;Z&quot;:99.998,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.15,&quot;Y&quot;:0.0,&quot;Z&quot;:112.437,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:87.676,&quot;Y&quot;:0.0,&quot;Z&quot;:99.787,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:107.144,&quot;Y&quot;:0.0,&quot;Z&quot;:100.419,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false},&quot;Three&quot;:{&quot;X&quot;:118.138,&quot;Y&quot;:0.0,&quot;Z&quot;:99.87,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:7,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="标点：未来观测α安全点" Id="71b5d9e2-4586-4efa-b689-b4a4ef7011dc" RegularExpression="^.{14} 15:.{8}:[^:]+?:489F:[^:]+?:.{8}:(?:[^:]*:){33}(?&lt;x&gt;[^:]+?):(?&lt;y&gt;[^:]+?):">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="alex_pos_1" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="78.28883" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="Numeric" ExpressionR="91.00694" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" VariableOp="SetString" VariableName="alex_pos_2" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="??" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="91.00694" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="Numeric" ExpressionR="78.28883" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" VariableOp="SetString" VariableName="alex_pos_3" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="??" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="108.9931" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="Numeric" ExpressionR="78.28883" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" VariableOp="SetString" VariableName="alex_pos_4" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="??" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="121.7112" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="Numeric" ExpressionR="91.00694" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p a测安全点:A右 C左" VariableOp="SetString" VariableName="alex_position" VariableExpression="${var:alex_position}4" TextAuraFontSize="9" TextAuraFontName="??" ActionType="GenericJson" ExecutionDelayExpression="100" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:alex_pos_1}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:alex_pos_4}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:alex_pos_2}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p a测安全点:A左 C右" VariableOp="SetString" VariableName="alex_position" VariableExpression="${var:alex_position}4" TextAuraFontSize="9" TextAuraFontName="??" ActionType="GenericJson" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:alex_pos_1}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:alex_pos_4}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:alex_pos_3}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="月环观测" Id="d7d319ee-eb56-4dc9-8f0a-6937d8bbd138" RegularExpression="] 15:4[0-9A-F]{7}:(.*?):489E:(.*?):10000:0:1000:(?&lt;x&gt;[^:]*?):(?&lt;y&gt;[^:]*?):">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 月环B点" VariableOp="SetString" VariableName="sacrament_location" VariableExpression="2B" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="115" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="Numeric" ExpressionR="110" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 月环D点" VariableOp="SetString" VariableName="sacrament_location" VariableExpression="4D" TextAuraFontSize="9" TextAuraFontName="??" ActionType="GenericJson" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                  <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="Numeric" ExpressionR="110" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 月环C点" VariableOp="SetString" VariableName="sacrament_location" VariableExpression="3C" TextAuraFontSize="9" TextAuraFontName="??" ActionType="GenericJson" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="Numeric" ExpressionR="115" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers />
+  </ExportedFolder>
+</TriggernometryExport>

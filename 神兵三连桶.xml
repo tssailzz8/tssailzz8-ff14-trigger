@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="705cc552-e410-4038-843e-5838bc601d19" Name="三连桶鲶鱼精版 by 竹取辉夜姬" Enabled="false">
+    <Folders>
+      <Folder Id="79b9554b-f87e-4f46-ac82-c665c6706a22" Name="通用" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Sequential="True" Name="设置列表" Id="41f8486b-d459-4f03-8772-2a63dcbe7468" RegularExpression="_Set:(?&lt;list&gt;[^:]+?):(?&lt;p1&gt;[^:]*?)(红玉海|神意之地|拉诺西亚|幻影群岛|萌芽池|宇宙和音|沃仙曦染|晨曦王座|白银乡|白金幻象|神拳痕|潮风亭|旅人栈桥|拂晓之间梦羽宝境|龙巢神殿|紫水栈桥|延夏|静语庄园|摩杜纳|海猫茶屋|柔风海湾|琥珀原)?:(?&lt;p2&gt;[^:]*?)(红玉海|神意之地|拉诺西亚|幻影群岛|萌芽池|宇宙和音|沃仙曦染|晨曦王座|白银乡|白金幻象|神拳痕|潮风亭|旅人栈桥|拂晓之间|梦羽宝境|龙巢神殿|紫水栈桥|延夏|静语庄园|摩杜纳|海猫茶屋|柔风海湾|琥珀原)?:(?&lt;p3&gt;[^:]*?)(红玉海|神意之地|拉诺西亚|幻影群岛|萌芽池|宇宙和音|沃仙曦染|晨曦王座|白银乡|白金幻象|神拳痕|潮风亭|旅人栈桥|拂晓之间|梦羽宝境|龙巢神殿|紫水栈桥|延夏|静语庄园|摩杜纳|海猫茶屋|柔风海湾|琥珀原)?:(?&lt;p4&gt;[^:]*?)(红玉海|神意之地|拉诺西亚|幻影群岛|萌芽池|宇宙和音|沃仙曦染|晨曦王座|白银乡|白金幻象|神拳痕|潮风亭|旅人栈桥|拂晓之间|梦羽宝境|龙巢神殿|紫水栈桥|延夏|静语庄园|摩杜纳|海猫茶屋|柔风海湾|琥珀原)?:(?&lt;p5&gt;[^:]*?)(红玉海|神意之地|拉诺西亚|幻影群岛|萌芽池|宇宙和音|沃仙曦染|晨曦王座|白银乡|白金幻象|神拳痕|潮风亭|旅人栈桥|拂晓之间|梦羽宝境|龙巢神殿|紫水栈桥|延夏|静语庄园|摩杜纳|海猫茶屋|柔风海湾|琥珀原)?:(?&lt;p6&gt;[^:]*?)(红玉海|神意之地|拉诺西亚|幻影群岛|萌芽池|宇宙和音|沃仙曦染|晨曦王座|白银乡|白金幻象|神拳痕|潮风亭|旅人栈桥|拂晓之间|梦羽宝境|龙巢神殿|紫水栈桥|延夏|静语庄园|摩杜纳|海猫茶屋|柔风海湾|琥珀原)?:(?&lt;p7&gt;[^:]*?)(红玉海|神意之地|拉诺西亚|幻影群岛|萌芽池|宇宙和音|沃仙曦染|晨曦王座|白银乡|白金幻象|神拳痕|潮风亭|旅人栈桥|拂晓之间|梦羽宝境|龙巢神殿|紫水栈桥|延夏|静语庄园|摩杜纳|海猫茶屋|柔风海湾|琥珀原)?:(?&lt;p8&gt;[^:]*?)(红玉海|神意之地|拉诺西亚|幻影群岛|萌芽池|宇宙和音|沃仙曦染|晨曦王座|白银乡|白金幻象|神拳痕|潮风亭|旅人栈桥|拂晓之间|梦羽宝境|龙巢神殿|紫水栈桥|延夏|静语庄园|摩杜纳|海猫茶屋|柔风海湾|琥珀原)?:">
+            <Actions>
+              <Action OrderNumber="1" ListVariableName="${list}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="${list}" ListVariableExpression="${p1}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="199842f3-f8e3-4100-8680-d4d765e8003e" TriggerText="_PureNameList:party:${p8}:" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="${list}" ListVariableExpression="${p2}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="199842f3-f8e3-4100-8680-d4d765e8003e" TriggerText="_PureNameList:party:${p8}:" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="${list}" ListVariableExpression="${p3}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="199842f3-f8e3-4100-8680-d4d765e8003e" TriggerText="_PureNameList:party:${p8}:" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="${list}" ListVariableExpression="${p4}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="199842f3-f8e3-4100-8680-d4d765e8003e" TriggerText="_PureNameList:party:${p8}:" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="${list}" ListVariableExpression="${p5}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="199842f3-f8e3-4100-8680-d4d765e8003e" TriggerText="_PureNameList:party:${p8}:" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="${list}" ListVariableExpression="${p6}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="199842f3-f8e3-4100-8680-d4d765e8003e" TriggerText="_PureNameList:party:${p8}:" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="${list}" ListVariableExpression="${p7}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="199842f3-f8e3-4100-8680-d4d765e8003e" TriggerText="_PureNameList:party:${p8}:" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="${list}" ListVariableExpression="${p8}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="199842f3-f8e3-4100-8680-d4d765e8003e" TriggerText="_PureNameList:party:${p8}:" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="优先级排序" Id="55a81fe0-068f-433d-a675-89804f4a9564" RegularExpression="_PrioritySort:(?&lt;pri&gt;[^:]+?):(?&lt;inputlist&gt;[^:]+?):(?&lt;outputlist&gt;[^:]+?):">
+            <Actions>
+              <Action OrderNumber="1" ListVariableExpressionType="Numeric" ListVariableName="priorilist" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:${pri}.indexof(${lvar:${inputlist}[1]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${pri}.indexof(${lvar:${inputlist}[1]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${inputlist}.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:${pri}.indexof(${lvar:${inputlist}[2]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${pri}.indexof(${lvar:${inputlist}[2]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${inputlist}.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:${pri}.indexof(${lvar:${inputlist}[3]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${pri}.indexof(${lvar:${inputlist}[3]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${inputlist}.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:${pri}.indexof(${lvar:${inputlist}[4]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${pri}.indexof(${lvar:${inputlist}[4]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${inputlist}.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:${pri}.indexof(${lvar:${inputlist}[5]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${pri}.indexof(${lvar:${inputlist}[5]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${inputlist}.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:${pri}.indexof(${lvar:${inputlist}[6]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${pri}.indexof(${lvar:${inputlist}[6]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${inputlist}.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:${pri}.indexof(${lvar:${inputlist}[7]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${pri}.indexof(${lvar:${inputlist}[7]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${inputlist}.size}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:${pri}.indexof(${lvar:${inputlist}[8]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${pri}.indexof(${lvar:${inputlist}[8]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:${inputlist}.size}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="10" ListVariableOp="SortAlphaAsc" ListVariableExpressionType="Numeric" ListVariableName="priorilist" ListVariableExpression="${lvar:priority.indexof(${lvar:${list}[8]})}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" ListVariableExpressionType="Numeric" ListVariableName="${outputlist}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" ListVariableOp="Push" ListVariableName="${outputlist}" ListVariableExpression="${lvar:${pri}[${lvar:priorilist[1]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:priorilist.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="13" ListVariableOp="Push" ListVariableName="${outputlist}" ListVariableExpression="${lvar:${pri}[${lvar:priorilist[2]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:priorilist.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="14" ListVariableOp="Push" ListVariableName="${outputlist}" ListVariableExpression="${lvar:${pri}[${lvar:priorilist[3]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:priorilist.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="15" ListVariableOp="Push" ListVariableName="${outputlist}" ListVariableExpression="${lvar:${pri}[${lvar:priorilist[4]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:priorilist.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="16" ListVariableOp="Push" ListVariableName="${outputlist}" ListVariableExpression="${lvar:${pri}[${lvar:priorilist[5]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:priorilist.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="17" ListVariableOp="Push" ListVariableName="${outputlist}" ListVariableExpression="${lvar:${pri}[${lvar:priorilist[6]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:priorilist.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="18" ListVariableOp="Push" ListVariableName="${outputlist}" ListVariableExpression="${lvar:${pri}[${lvar:priorilist[7]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:priorilist.size}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="19" ListVariableOp="Push" ListVariableName="${outputlist}" ListVariableExpression="${lvar:${pri}[${lvar:priorilist[8]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:priorilist.size}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Sequential="True" Name="三连桶" Id="e1c69f1c-5d03-41ca-95b6-4ebf025b5d21" RegularExpression=":(2B6B|2B6C):花岗岩牢狱:........:(?&lt;Name&gt;[^:]+):">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="123" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="queue" ListVariableExpression="${Name}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="light" ListVariableExpression="${Name}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="55a81fe0-068f-433d-a675-89804f4a9564" TriggerText="_PrioritySort:priority:queue:queue:" ActionType="Trigger" ExecutionDelayExpression="100" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:queue.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="lighthistory" ListVariableExpression="${lvar:light[1]},${lvar:light[2]}" LogMessageText="jails:${lvar:queue[1]},${lvar:queue[2]},${lvar:queue[3]}:" LogProcess="True" UseTTSTextExpression="${lvar:light[1]}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="9c33c3ee-d240-48d4-a86f-6041b837797b" TriggerText="_PrioritySort:light:light:" ActionType="LogMessage" ExecutionDelayExpression="200" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:queue.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="lighthistory" ListVariableExpression="${lvar:light[1]},${lvar:light[2]}" LogMessageText="jails2:${lvar:party.indexof(${lvar:queue[1]})}:${lvar:party.indexof(${lvar:queue[2]})}:${lvar:party.indexof(${lvar:queue[3]})}:" UseTTSTextExpression="${lvar:light[1]}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="9c33c3ee-d240-48d4-a86f-6041b837797b" TriggerText="_PrioritySort:light:light:" ActionType="LogMessage" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:queue.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/marking attack1 &lt;${lvar:party.indexof(${lvar:queue[1]})}&gt;" ListVariableOp="Push" ListVariableName="lighthistory" ListVariableExpression="${lvar:light[1]},${lvar:light[2]}" LogMessageText="jails:${lvar:queue[1]},${lvar:queue[2]},${lvar:queue[3]}:" UseTTSTextExpression="${lvar:light[1]}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="9c33c3ee-d240-48d4-a86f-6041b837797b" TriggerText="_PrioritySort:light:light:" ActionType="GenericJson" ExecutionDelayExpression="100" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:queue.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="7" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/marking attack2 &lt;${lvar:party.indexof(${lvar:queue[2]})}&gt;" ListVariableOp="Push" ListVariableName="lighthistory" ListVariableExpression="${lvar:light[1]},${lvar:light[2]}" LogMessageText="jails:${lvar:queue[1]},${lvar:queue[2]},${lvar:queue[3]}:" UseTTSTextExpression="${lvar:light[1]}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="9c33c3ee-d240-48d4-a86f-6041b837797b" TriggerText="_PrioritySort:light:light:" ActionType="GenericJson" ExecutionDelayExpression="100" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:queue.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="8" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/marking attack3 &lt;${lvar:party.indexof(${lvar:queue[3]})}&gt;" ListVariableOp="Push" ListVariableName="lighthistory" ListVariableExpression="${lvar:light[1]},${lvar:light[2]}" LogMessageText="jails:${lvar:queue[1]},${lvar:queue[2]},${lvar:queue[3]}:" UseTTSTextExpression="${lvar:light[1]}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="9c33c3ee-d240-48d4-a86f-6041b837797b" TriggerText="_PrioritySort:light:light:" ActionType="GenericJson" ExecutionDelayExpression="100" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:queue.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="9" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${lvar:queue[1]},${lvar:queue[2]},${lvar:queue[3]}:" ListVariableOp="Push" ListVariableName="lighthistory" ListVariableExpression="${lvar:light[1]},${lvar:light[2]}" LogMessageText="jails:${lvar:queue[1]},${lvar:queue[2]},${lvar:queue[3]}:" UseTTSTextExpression="${lvar:light[1]}" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="9c33c3ee-d240-48d4-a86f-6041b837797b" TriggerText="_PrioritySort:light:light:" ActionType="GenericJson" ExecutionDelayExpression="100" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:queue.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="10" ListVariableName="queue" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="5000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>

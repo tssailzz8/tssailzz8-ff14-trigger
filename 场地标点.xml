@@ -1,0 +1,530 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="df9816ac-0597-4972-8472-aa7643c50121" Name="场地自动标点" Enabled="true">
+    <Folders>
+      <Folder ZoneFilterEnabled="True" Id="ab5e6599-a54e-482f-b989-caa422ba1f64" ZoneFilterRegularExpression="巴哈姆特绝境战" Name="巴哈" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="巴哈重置" Id="4935ea78-0658-4e35-b01b-6ac2f55a74eb" RegularExpression="距离战斗开始还有10秒！" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:-0.07233447,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:-22.2067833,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:8.039988,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:-3.37868881,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:0.290453434,&quot;Y&quot;:-3.81469727E-06,&quot;Z&quot;:9.521973,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:-7.49105072,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:-3.033144,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:0.07961208,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:0.0431003571,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.104299545,&quot;Y&quot;:0.0,&quot;Z&quot;:-9.92495,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="巴哈p3" Id="0a55633c-6c33-42b9-9c32-eee8b95982f4" RegularExpression="至尊巴哈姆特:26D3:灵灾之焰" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:0.09310722,&quot;Y&quot;:0.0,&quot;Z&quot;:-21.5709343,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:22.03492,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:0.0562648177,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:0.107087493,&quot;Y&quot;:0.0,&quot;Z&quot;:21.92632,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:-21.8358841,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:-0.191790581,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:0.07961208,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:0.0431003571,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.104299545,&quot;Y&quot;:0.0,&quot;Z&quot;:-9.92495,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="巴哈" Id="2f15420c-94d2-4c99-9c95-d6b09d3696a2" RegularExpression="“巴哈姆特绝境战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:-0.07233447,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:-22.2067833,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:8.039988,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:-3.37868881,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:0.290453434,&quot;Y&quot;:-3.81469727E-06,&quot;Z&quot;:9.521973,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:-7.49105072,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:-3.033144,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:0.07961208,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:0.0431003571,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.104299545,&quot;Y&quot;:0.0,&quot;Z&quot;:-9.92495,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="ae3179ea-d046-4327-b8cd-391d4faa07ea" ZoneFilterRegularExpression="究极神兵绝境战" Name="神兵" Enabled="true">
+        <Folders>
+          <Folder Id="9d2e429a-bfff-453d-9814-35ed0a0b05a3" Name="火神柱和三连桶2点" Enabled="true">
+            <Folders>
+              <Folder Id="6ef375f2-e963-4b5a-9e26-e0e1652780b0" Name="火神柱自动标2" Enabled="true">
+                <Folders>
+                  <Folder Id="33507c42-4490-4c30-b317-3fb98ee44a50" Name="柱子位置判断" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Name="B柱" Id="1ca93a46-c5ca-453b-b306-82b26a677f62" RegularExpression="^.{14} 03:.{8}:Added new combatant 火狱之楔.  Job:.*?Pos: \(93,(107|106.9519),">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="zhuzi_B" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="3926ca7b-24af-4af3-a309-ad0c9857d021" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="H柱" Id="107ce623-f5b2-417e-aabf-9f22db757dd7" RegularExpression="^.{14} 03:.{8}:Added new combatant 火狱之楔.  Job:.*?Pos: \(107,93,">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="zhuzi_H" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="3926ca7b-24af-4af3-a309-ad0c9857d021" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="A柱" Id="fee9876c-7b95-48d2-8be4-82fbdc154c95" RegularExpression="^.{14} 03:.{8}:Added new combatant 火狱之楔.  Job:.*?Pos: \(107,107,">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="zhuzi_A" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="3926ca7b-24af-4af3-a309-ad0c9857d021" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="C柱" Id="b814638f-7bc6-4837-ac97-ed7422749d1b" RegularExpression="^.{14} 03:.{8}:Added new combatant 火狱之楔.  Job:.*?Pos: \(90,100,">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="zhuzi_C" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="3926ca7b-24af-4af3-a309-ad0c9857d021" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="D柱" Id="9e5ffeeb-fbe4-4f0c-a15d-40c3a7aa295b" RegularExpression="^.{14} 03:.{8}:Added new combatant 火狱之楔.  Job:.*?Pos: \(100,90,">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="zhuzi_D" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="3926ca7b-24af-4af3-a309-ad0c9857d021" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="E柱" Id="47ba2468-bc8d-4df8-827b-1f66c594378b" RegularExpression="^.{14} 03:.{8}:Added new combatant 火狱之楔.  Job:.*?Pos: \(93,93,">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="zhuzi_E" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="3926ca7b-24af-4af3-a309-ad0c9857d021" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="F柱" Id="9091c91b-feb7-4c89-9ada-3e79cbdcfb68" RegularExpression="^.{14} 03:.{8}:Added new combatant 火狱之楔.  Job:.*?Pos: \(110,100,">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="zhuzi_F" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="3926ca7b-24af-4af3-a309-ad0c9857d021" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="G柱" Id="acff75cd-aa77-42f9-93c2-9007064d0837" RegularExpression="^.{14} 03:.{8}:Added new combatant 火狱之楔.  Job:.*?Pos: \(100,110,">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="zhuzi_G" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="3926ca7b-24af-4af3-a309-ad0c9857d021" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers>
+                  <Trigger Enabled="true" Name="开始标记（火神柱）" Id="3926ca7b-24af-4af3-a309-ad0c9857d021" RegularExpression="" RefirePeriodExpression="10000">
+                    <Actions>
+                      <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:115.272614,&quot;Y&quot;:0.000100016594,&quot;Z&quot;:91.65728,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_A}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_B}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_C}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_D}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:107.318871,&quot;Y&quot;:0.000100016594,&quot;Z&quot;:83.88876,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_E}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_F}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_G}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_B}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:116.282379,&quot;Y&quot;:0,&quot;Z&quot;:106.665962,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_E}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_C}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_G}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_H}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:106.628731,&quot;Y&quot;:0.000100255013,&quot;Z&quot;:116.139816,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_E}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_B}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_D}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_F}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:93.6675644,&quot;Y&quot;:0.000100016594,&quot;Z&quot;:116.2712,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_A}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_C}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_D}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_H}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:84.54871,&quot;Y&quot;:0.000100255013,&quot;Z&quot;:107.65123,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_E}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_G}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_F}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_H}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="7" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:84.08462,&quot;Y&quot;:0.000100016594,&quot;Z&quot;:92.65591,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_B}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_A}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_F}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_D}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="8" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:92.4805145,&quot;Y&quot;:9.97781754E-05,&quot;Z&quot;:84.0643539,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_G}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_A}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_H}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:zhuzi_C}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="6a82e270-3c29-4d94-9389-043b56930e72" Name="一杆进洞报左右+自动标2" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="跳C击退左" Id="4d0045ba-d436-4a17-8f9a-77b7fe93cc55" RegularExpression="^.{14} 03:.{8}:Added new combatant 爆破岩石.  Job:.*?Pos: \(95,88," RefirePeriodExpression="30000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="左左左" ActionType="UseTTS" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:105,&quot;Y&quot;:0,&quot;Z&quot;:95,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:luoshi_on}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="跳C击退右" Id="daf78370-76c5-4132-a8ed-b263e3ebe96a" RegularExpression="^.{14} 03:.{8}:Added new combatant 爆破岩石.  Job:.*?Pos: \(105,88," RefirePeriodExpression="30000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="右右右" ActionType="UseTTS" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:95.0,&quot;Y&quot;:0,&quot;Z&quot;:95.0,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:luoshi_on}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="跳B击退右" Id="6b524d38-4c8c-4051-847c-fa306fcd5a4c" RegularExpression="^.{14} 03:.{8}:Added new combatant 爆破岩石.  Job:.*?Pos: \(88,95," RefirePeriodExpression="30000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="右右右" ActionType="UseTTS" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:95,&quot;Y&quot;:0,&quot;Z&quot;:105,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:luoshi_on}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="跳B击退左" Id="21d5f20d-9a22-431e-bdf7-3e8cb8ca7153" RegularExpression="^.{14} 03:.{8}:Added new combatant 爆破岩石.  Job:.*?Pos: \(88,105," RefirePeriodExpression="30000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="左左左" ActionType="UseTTS" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:95,&quot;Y&quot;:0,&quot;Z&quot;:95,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:luoshi_on}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="跳A击退右" Id="1f9da38f-6fbf-4029-a696-1cd2f0f7d77c" RegularExpression="^.{14} 03:.{8}:Added new combatant 爆破岩石.  Job:.*?Pos: \(95,(111|112)," RefirePeriodExpression="30000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="右右右" ActionType="UseTTS" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:105.0,&quot;Y&quot;:0.0,&quot;Z&quot;:105.0,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:luoshi_on}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="跳A击退左" Id="12b5ddb3-6531-4bab-b9f1-161ffb40ea9d" RegularExpression="^.{14} 03:.{8}:Added new combatant 爆破岩石.  Job:.*?Pos: \(105,112," RefirePeriodExpression="30000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="左左左" ActionType="UseTTS" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:95,&quot;Y&quot;:0,&quot;Z&quot;:105,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:luoshi_on}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="跳D击退左" Id="6b1d7823-2f50-4beb-8cb9-bd81da9af69e" RegularExpression="^.{14} 03:.{8}:Added new combatant 爆破岩石.  Job:.*?Pos: \((111|112),95," RefirePeriodExpression="30000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="左左左" ActionType="UseTTS" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:105,&quot;Y&quot;:0,&quot;Z&quot;:105,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:luoshi_on}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="跳D击退右" Id="aff0b2be-7d0a-48f5-bdb5-e4bc9a1c8796" RegularExpression="^.{14} 03:.{8}:Added new combatant 爆破岩石.  Job:.*?Pos: \(112,105," PeriodRefire="Deny" RefirePeriodExpression="30000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="右右右" ActionType="UseTTS" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;Two&quot;:{&quot;X&quot;:105,&quot;Y&quot;:0,&quot;Z&quot;:95,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:luoshi_on}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="判断结束" Id="a0cee68f-2dd7-492c-b78b-0311ed88fa32" RegularExpression="^.{14} 14:2B6A:">
+                    <Actions>
+                      <Action OrderNumber="1" VariableName="luoshi_on" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="标点参数初始化" Id="4c4d5c20-0594-4e85-bf98-b54680dc8203" RegularExpression="^.{14} 00:(00b9|0139):距离战斗开始还有.*?秒！ \（.*?\）|^.{14} 21:.{8}:4000001[026]|^.{14} 03:.{8}:Added new combatant 迦楼罗\.  Job: N/A Level: 70 Max HP: 5293335 Max MP: 34464 Pos: \(100,90,">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="UnsetRegex" VariableName="zhuzi" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="luoshi_on" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="false" Name="三神" Id="ef287225-cc1a-4ed2-b2b1-661833c416f6" RegularExpression="究极神兵:2B8B:究极" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.9280853,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:81.88934,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:117.953,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:99.92119,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.01757,&quot;Y&quot;:0.0,&quot;Z&quot;:118.150208,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.86808,&quot;Y&quot;:0.0,&quot;Z&quot;:100.067223,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:100.046188,&quot;Y&quot;:0.0,&quot;Z&quot;:99.87093,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:87.6422,&quot;Y&quot;:0.0,&quot;Z&quot;:87.89318,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:exflare_counter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="exflare_counter" VariableExpression="${var:exflare_counter}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="神兵" Id="b185d131-8fe4-4423-8e51-e896f4ccb3eb" RegularExpression="“究极神兵绝境战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:100.307381,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:82.06738,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:117.834473,&quot;Y&quot;:0.0,&quot;Z&quot;:100.07206,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.88341,&quot;Y&quot;:0.0,&quot;Z&quot;:117.549583,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:82.32637,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:99.71335,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:100.049088,&quot;Y&quot;:0.0,&quot;Z&quot;:100.120972,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="59d74165-f0fc-418b-b590-79bac13fe0d9" Name="尼尔" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="3号" Id="96a6a556-630e-4523-9653-cdab96b29f0c" RegularExpression="移动到了工厂废墟深层……" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:885.4198,&quot;Y&quot;:-700.0,&quot;Z&quot;:686.0822,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:899.9516,&quot;Y&quot;:-700.0,&quot;Z&quot;:650.2189,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:917.475952,&quot;Y&quot;:-700.0,&quot;Z&quot;:683.685547,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:3,&quot;Active&quot;:false},&quot;One&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:4,&quot;Active&quot;:false},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="4号" Id="d1c06e1d-b505-4a78-ad60-9a994538e59c" RegularExpression="又有那个叫辅助机的机器了" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:881.7151,&quot;Y&quot;:-700.0,&quot;Z&quot;:425.925659,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:900.339,&quot;Y&quot;:-700.000061,&quot;Z&quot;:449.3012,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:919.056946,&quot;Y&quot;:-700.0001,&quot;Z&quot;:428.248871,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:3,&quot;Active&quot;:false},&quot;One&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:4,&quot;Active&quot;:false},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="d2dc4b2a-16f2-439f-ba91-95586d36d5c4" Name="绝亚" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="P1开场自动标点（不用可以不点）" Id="2982efe9-98f6-4135-abee-211c006f79fe" RegularExpression="“亚历山大绝境战”任务开始。">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;绝亚&quot;,&quot;A&quot;:{&quot;X&quot;:99.918,&quot;Y&quot;:0.0,&quot;Z&quot;:87.889,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:112.196,&quot;Y&quot;:0.0,&quot;Z&quot;:99.998,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.15,&quot;Y&quot;:0.0,&quot;Z&quot;:112.437,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:87.676,&quot;Y&quot;:0.0,&quot;Z&quot;:99.787,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:107.144,&quot;Y&quot;:0.0,&quot;Z&quot;:100.419,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false},&quot;Three&quot;:{&quot;X&quot;:118.138,&quot;Y&quot;:0.0,&quot;Z&quot;:99.87,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:7,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="855d4fb9-2e78-4d46-8938-7e473a5fc8ba" Name="5.0零式" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="e1s" Id="452e38d1-0dd9-4c25-b67a-8ff608a6d438" RegularExpression="“伊甸零式希望乐园 觉醒之章1”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:90.29832,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:90.22467,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:109.82357,&quot;Y&quot;:0.0,&quot;Z&quot;:90.0262146,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:109.809547,&quot;Y&quot;:0.0,&quot;Z&quot;:109.46489,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:90.14541,&quot;Y&quot;:-3.81469727E-06,&quot;Z&quot;:109.631,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.99784,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:84.65342,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:99.88271,&quot;Y&quot;:0.0,&quot;Z&quot;:116.896973,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="e2s" Id="f81803c8-16a0-4506-8310-ab14d62e4f3c" RegularExpression="“伊甸零式希望乐园 觉醒之章2”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:114.148567,&quot;Y&quot;:0.0,&quot;Z&quot;:81.96628,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:113.723595,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:118.134171,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:86.06468,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:118.489243,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:3,&quot;Active&quot;:false},&quot;One&quot;:{&quot;X&quot;:100.178589,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:97.5625458,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="e3s" Id="cf5aee0b-c7da-42c6-9232-74046b33b88f" RegularExpression="“伊甸零式希望乐园 觉醒之章3”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:93.83357,&quot;Y&quot;:0.0,&quot;Z&quot;:100.288551,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:105.052551,&quot;Y&quot;:0.0,&quot;Z&quot;:100.309563,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:81.06151,&quot;Y&quot;:0.0,&quot;Z&quot;:103.57856,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:119.394409,&quot;Y&quot;:0.0,&quot;Z&quot;:103.39711,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:91.2746658,&quot;Y&quot;:0.0,&quot;Z&quot;:81.9043,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:108.703125,&quot;Y&quot;:0.0,&quot;Z&quot;:81.4340057,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="e4s" Id="51d4091e-c4f9-49cf-9910-d6707a420559" RegularExpression="“伊甸零式希望乐园 觉醒之章4”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:89.43272,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:89.33858,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:110.794228,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:89.08669,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:89.2349854,&quot;Y&quot;:0.0,&quot;Z&quot;:111.01371,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:110.487587,&quot;Y&quot;:0.0,&quot;Z&quot;:111.239983,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:90.96692,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:92.78151,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:90.53671,&quot;Y&quot;:0.0,&quot;Z&quot;:107.569672,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="e5s" Id="12dca18e-279d-4b07-9953-d15e8c771f87" RegularExpression="“伊甸零式希望乐园 共鸣之章1”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;321&quot;,&quot;A&quot;:{&quot;X&quot;:100.084,&quot;Y&quot;:0.0,&quot;Z&quot;:83.192,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:117.991,&quot;Y&quot;:0.0,&quot;Z&quot;:100.68,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.873,&quot;Y&quot;:0.0,&quot;Z&quot;:117.735,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:82.531,&quot;Y&quot;:0.0,&quot;Z&quot;:99.004,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:94.259,&quot;Y&quot;:0.0,&quot;Z&quot;:94.281,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:106.549,&quot;Y&quot;:0.0,&quot;Z&quot;:94.759,&quot;ID&quot;:5,&quot;Active&quot;:true},&quot;Three&quot;:{&quot;X&quot;:101.608,&quot;Y&quot;:0.0,&quot;Z&quot;:106.709,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:107.659,&quot;Y&quot;:0.0,&quot;Z&quot;:110.033,&quot;ID&quot;:7,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="e6s" Id="408e8c62-ae2d-4260-985c-dfcf886a141a" RegularExpression="“伊甸零式希望乐园 共鸣之章2”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;e6s&quot;,&quot;A&quot;:{&quot;X&quot;:100.155,&quot;Y&quot;:0.0,&quot;Z&quot;:82.833,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.958,&quot;Y&quot;:0.0,&quot;Z&quot;:100.011,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.725,&quot;Y&quot;:0.0,&quot;Z&quot;:118.028,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.493,&quot;Y&quot;:0.0,&quot;Z&quot;:99.49,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:94.143,&quot;Y&quot;:0.0,&quot;Z&quot;:95.59,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:105.028,&quot;Y&quot;:0.0,&quot;Z&quot;:95.284,&quot;ID&quot;:5,&quot;Active&quot;:true},&quot;Three&quot;:{&quot;X&quot;:104.838,&quot;Y&quot;:0.0,&quot;Z&quot;:105.87,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:94.101,&quot;Y&quot;:0.0,&quot;Z&quot;:105.547,&quot;ID&quot;:7,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="e7s" Id="10a36291-3e27-4b95-9ffe-1c564426be90" RegularExpression="“伊甸零式希望乐园 共鸣之章3”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;e7s&quot;,&quot;MapID&quot;:0,&quot;A&quot;:{&quot;X&quot;:94.057,&quot;Y&quot;:0.0,&quot;Z&quot;:80.996,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:119.24,&quot;Y&quot;:0.0,&quot;Z&quot;:93.721,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:105.759,&quot;Y&quot;:0.0,&quot;Z&quot;:119.026,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.18,&quot;Y&quot;:0.0,&quot;Z&quot;:104.805,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:98.845,&quot;Y&quot;:0.0,&quot;Z&quot;:98.892,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:108.989,&quot;Y&quot;:0.0,&quot;Z&quot;:91.53,&quot;ID&quot;:5,&quot;Active&quot;:true},&quot;Three&quot;:{&quot;X&quot;:101.236,&quot;Y&quot;:0.0,&quot;Z&quot;:101.485,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:7,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="e8s" Id="86237373-c791-4939-ad82-a7d4312b76e7" RegularExpression="“伊甸零式希望乐园 共鸣之章4”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;Name&quot;:&quot;e8s&quot;,&quot;A&quot;:{&quot;X&quot;:99.858,&quot;Y&quot;:0.0,&quot;Z&quot;:83.569,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:116.143,&quot;Y&quot;:0.0,&quot;Z&quot;:100.028,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.038,&quot;Y&quot;:0.0,&quot;Z&quot;:115.959,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:84.032,&quot;Y&quot;:0.0,&quot;Z&quot;:99.972,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:88.628,&quot;Y&quot;:0.0,&quot;Z&quot;:111.319,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:111.322,&quot;Y&quot;:0.0,&quot;Z&quot;:111.359,&quot;ID&quot;:5,&quot;Active&quot;:true},&quot;Three&quot;:{&quot;X&quot;:88.609,&quot;Y&quot;:0.0,&quot;Z&quot;:88.927,&quot;ID&quot;:6,&quot;Active&quot;:true},&quot;Four&quot;:{&quot;X&quot;:111.331,&quot;Y&quot;:0.0,&quot;Z&quot;:88.529,&quot;ID&quot;:7,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="c71acf5b-0998-40b7-999a-e227ef5e91f1" Name="蛮神" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="白虎" Id="34ba7920-6a66-4114-b8f4-515d654a1c7b" RegularExpression="“白虎诗魂战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/place" JsonPayloadExpression="{&quot;A&quot;: {&quot;X&quot;: 0.198196337,&quot;Y&quot;: 2.76398578E-06,&quot;Z&quot;: -18.5032463,&quot;ID&quot;: 0,&quot;Active&quot;: true},&quot;B&quot;: {&quot;X&quot;: -17.3546638,&quot;Y&quot;: 1.4769779E-06,&quot;Z&quot;: 7.57308054,&quot;ID&quot;: 1,&quot;Active&quot;: true},&quot;C&quot;: {&quot;X&quot;: 15.98918,&quot;Y&quot;: -4.36020036E-06,&quot;Z&quot;: 9.729175,&quot;ID&quot;: 2,&quot;Active&quot;: true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="哈迪斯" Id="9920a90b-f307-4e89-914b-512ccab4996e" RegularExpression="“哈迪斯孤念歼灭战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.94908,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:95.445816,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:104.676582,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:100.000595,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.043724,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:104.729736,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:95.21652,&quot;Y&quot;:0.0,&quot;Z&quot;:99.8215,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:94.99999,&quot;Y&quot;:4.768372E-07,&quot;Z&quot;:96.0069,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:104.999992,&quot;Y&quot;:-3.574863E-07,&quot;Z&quot;:96.0069,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="青龙" Id="24a42a08-b527-4dd1-af07-4a77b37811eb" RegularExpression="“青龙诗魂战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:100.356552,&quot;Y&quot;:-6.700576E-06,&quot;Z&quot;:81.95613,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:119.661438,&quot;Y&quot;:-9.25636868E-07,&quot;Z&quot;:100.777023,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.057991,&quot;Y&quot;:-8.440299E-06,&quot;Z&quot;:118.584145,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:80.47084,&quot;Y&quot;:-5.249853E-05,&quot;Z&quot;:100.648651,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.91794,&quot;Y&quot;:-7.4129357E-06,&quot;Z&quot;:94.52867,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:100.070107,&quot;Y&quot;:-8.775128E-06,&quot;Z&quot;:104.833641,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="缇坦妮雅&#xA;" Id="0ef454e8-b6da-4c07-8f27-2ecf46b1957f" RegularExpression="“缇坦妮雅歼殛战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:100.002243,&quot;Y&quot;:-1.96695328E-06,&quot;Z&quot;:81.3506546,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.654472,&quot;Y&quot;:-1.96695328E-06,&quot;Z&quot;:100.006805,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.023895,&quot;Y&quot;:-5.960464E-08,&quot;Z&quot;:118.626984,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.3446045,&quot;Y&quot;:-1.96695328E-06,&quot;Z&quot;:99.9919739,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:93.317215,&quot;Y&quot;:-5.960464E-08,&quot;Z&quot;:100.022911,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:106.674713,&quot;Y&quot;:1.847744E-06,&quot;Z&quot;:100.017967,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="无暇灵君&#xA;" Id="35eb5c02-8bde-4b04-a0d8-7e16e7905577" RegularExpression="“无暇灵君歼殛战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:100.700264,&quot;Y&quot;:0.005888939,&quot;Z&quot;:82.42697,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.721413,&quot;Y&quot;:0.004025936,&quot;Z&quot;:99.82356,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.71084,&quot;Y&quot;:0.003194809,&quot;Z&quot;:119.211182,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:80.85042,&quot;Y&quot;:0.00330352783,&quot;Z&quot;:99.7462158,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:4,&quot;Active&quot;:false},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="月读" Id="11c573db-19fa-4f7e-90b5-32acc2b9db38" RegularExpression="“月读幽夜歼灭战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.60663,&quot;Y&quot;:0.0,&quot;Z&quot;:82.8387451,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:117.821754,&quot;Y&quot;:0.0,&quot;Z&quot;:99.82191,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:100.040916,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:117.491928,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:82.4726257,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:99.78953,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:4,&quot;Active&quot;:false},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="朱雀" Id="7691a223-6f9a-4940-9d83-7ffe5680ff0a" RegularExpression="“朱雀诗魂战”任务开始。" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2005/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:100.426468,&quot;Y&quot;:0.0,&quot;Z&quot;:82.81605,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.567696,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:99.98941,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.9193344,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:118.764473,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.94909,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:99.9024048,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.96159,&quot;Y&quot;:0.0,&quot;Z&quot;:106.399796,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers />
+  </ExportedFolder>
+</TriggernometryExport>
