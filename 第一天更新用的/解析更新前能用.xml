@@ -47,9 +47,11 @@
                 <Actions>
                   <Action OrderNumber="1" LogMessageText="[00:00:00.000] 15:${actorID}:${_ffxiventity[${actorID}].name}:${skillID}:skill:${targetID}:${_ffxiventity[${targetID}].name}:${_ffxiventity[${actorID}].x}:${_ffxiventity[${actorID}].y}:${_ffxiventity[${targetID}].x}:${_ffxiventity[${targetID}].y}:" LogProcess="True" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="log" ListVariableExpression="[00:00:00.000] 15:${actorID}:${_ffxiventity[${actorID}].name}:${skillID}:skill:${targetID}:${_ffxiventity[${targetID}].name}:${_ffxiventity[${actorID}].x}:${_ffxiventity[${actorID}].y}:${_ffxiventity[${targetID}].x}:${_ffxiventity[${targetID}].y}:" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
@@ -72,9 +74,9 @@
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="false" Name="导入opcode(国服)" Id="f2c5d972-c3f6-43fb-a6c2-3ea1661269da" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
+          <Trigger Enabled="true" Name="导入opcode(国服)" Id="f2c5d972-c3f6-43fb-a6c2-3ea1661269da" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
             <Actions>
-              <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://gitee.com/zhu_jun_long/ff14-trigger/raw/master/%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%9B%B4%E6%96%B0%E7%94%A8%E7%9A%84/opcodetable.csv" DiskFileOpVar="OpcodeTable" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiskFile">
+              <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://cdn.jsdelivr.net/gh/tssailzz8/tssailzz8-ff14-trigger@master/第一天更新用的/opcodetable.csv" DiskFileOpVar="OpcodeTable" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiskFile">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -110,7 +112,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="导入opcode(国际服)" Id="96f15f6b-3da9-4753-a187-50345c0d5d37" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
+          <Trigger Enabled="false" Name="导入opcode(国际服)" Id="96f15f6b-3da9-4753-a187-50345c0d5d37" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
             <Actions>
               <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://gitee.com/zhu_jun_long/ff14-trigger/raw/master/%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%9B%B4%E6%96%B0%E7%94%A8%E7%9A%84/opcodetable%E5%9B%BD%E9%99%85%E6%9C%8D.csv" DiskFileOpVar="OpcodeTable" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiskFile">
                 <Condition Enabled="false" Grouping="Or" />
@@ -1187,7 +1189,7 @@
               <Folder Id="727aae83-c356-42b6-ac39-f30de35444c1" Name="连线" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="false" Name="连线了" Id="219dd5b7-9ac3-433d-a93d-df4c17d324c6" RegularExpression="^.{15}23:(?&lt;actorID&gt;4[0-9A-F]{7})(?:[^:]*:){2}(?&lt;playerID&gt;1[0-9A-F]{7})(?:[^:]*:){3}0000:0011:[0-9A-F]{8}:000F:" PeriodRefire="Deny" RefirePeriodExpression="15000">
+                  <Trigger Enabled="true" Name="连线了" Id="219dd5b7-9ac3-433d-a93d-df4c17d324c6" RegularExpression="^.{15}23:(?&lt;actorID&gt;4[0-9A-F]{7})(?:[^:]*:){2}(?&lt;playerID&gt;1[0-9A-F]{7})(?:[^:]*:){3}0000:0011:[0-9A-F]{8}:000F:" PeriodRefire="Deny" RefirePeriodExpression="15000">
                     <Actions>
                       <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="lianxianID" VariableExpression="${actorID}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
@@ -1899,12 +1901,43 @@
               <Folder Id="10def27f-bcf0-484c-8304-55bd16e006ec" Name="e12s地火" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="获取位置" Id="69567244-a64e-477e-a536-6b44917413be" RegularExpression="^.{15}00:0000:101:.{8}:0005:(?&lt;id&gt;.{4}):1EB0FF:E0000000:(?&lt;x&gt;.+?):(?&lt;y&gt;.+?):">
+                  <Trigger Enabled="true" Name="获取安全点" Id="200bfe5d-8c5a-4b6d-b4e6-489ffb2110f0" RegularExpression="">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Set" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="8" ListVariableIndex="${lvar:dihuo2.indexof(0)}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="dihuo2" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo3" ListVariableExpression="${lvar:dihuo2[1]}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="50">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${lvar:dihuo2[1]}-${lvar:dihuo2[2]})}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${lvar:dihuo2[1]}-${lvar:dihuo2[3]})}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo3" ListVariableExpression="${lvar:dihuo2[2]}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${lvar:dihuo2[1]}-${lvar:dihuo2[2]})}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${lvar:dihuo2[2]}-${lvar:dihuo2[3]})}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo3" ListVariableExpression="${lvar:dihuo2[3]}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${lvar:dihuo2[1]}-${lvar:dihuo2[3]})}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${lvar:dihuo2[2]}-${lvar:dihuo2[3]})}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo3" ListVariableExpression="${lvar:dihuo2[3]}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="ad2af04f-006b-41f5-b4ad-c9380487119d" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="50">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="false" Name="获取位置" Id="69567244-a64e-477e-a536-6b44917413be" RegularExpression="^.{15}00:0000:101:.{8}:0005:(?&lt;id&gt;.{4}):1EB0FF:E0000000:(?&lt;x&gt;.+?):(?&lt;y&gt;.+?):">
                     <Actions>
                       <Action OrderNumber="1" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo1" ListVariableExpression="round(4-arctan2(${x},${numeric:75+${y}})*4/pi)%8" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="false" Grouping="And" />
                       </Action>
-                      <Action OrderNumber="2" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="f96cdb06-cd3f-4e22-b127-5df327ad5084" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                      <Action OrderNumber="2" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="f96cdb06-cd3f-4e22-b127-5df327ad5084" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="50">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1912,6 +1945,107 @@
                       <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="String" ExpressionR="0.00" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-75.00" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
                     </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="安全点播报" Id="ad2af04f-006b-41f5-b4ad-c9380487119d" RegularExpression="">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="1A之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(8)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" LogMessageText="AT_Subtitle:去1A点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="1A之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(8)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" LogLevel="-1" UseTTSTextExpression="1B之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" LogMessageText="AT_Subtitle:去1B点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="1B之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" LogLevel="-1" UseTTSTextExpression="2B之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" LogMessageText="AT_Subtitle:去2B点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="2B之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="7" LogLevel="-1" UseTTSTextExpression="2C之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="8" LogMessageText="AT_Subtitle:去2C点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="2C之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="9" LogLevel="-1" UseTTSTextExpression="3C之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="10" LogMessageText="AT_Subtitle:去3C点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="3C之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="11" LogLevel="-1" UseTTSTextExpression="3D之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="12" LogMessageText="AT_Subtitle:去3D点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="3D之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="13" LogLevel="-1" UseTTSTextExpression="4D之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="14" LogMessageText="AT_Subtitle:去4D点:10:200:-450:" LogProcess="True" UseTTSTextExpression="4D之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="15" LogLevel="-1" UseTTSTextExpression="4A之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(8)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="16" LogMessageText="AT_Subtitle:去4A点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="4A之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo3.indexof(8)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
                   <Trigger Enabled="true" Name="三火" Id="3668345c-10ff-4617-8711-41b6352af0ca" RegularExpression="^.{15}14:501D:">
                     <Actions>
@@ -1943,59 +2077,49 @@
                     <Actions>
                       <Action OrderNumber="1" ListVariableOp="Remove" ListVariableExpressionType="Numeric" ListVariableName="dihuo1" ListVariableExpression="0" ListVariableIndex="${lvar:dihuo1.indexof(4)} " LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="0" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="10">
+                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="0" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo1.indexof(0)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="3" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="1" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="10">
+                      <Action OrderNumber="3" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="1" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo1.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="4" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="2" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="10">
+                      <Action OrderNumber="4" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="2" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo1.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="5" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="3" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="10">
+                      <Action OrderNumber="5" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="3" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo1.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="6" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="4" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="10">
+                      <Action OrderNumber="6" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="4" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo1.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="7" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="5" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="10">
+                      <Action OrderNumber="7" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="5" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo1.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="8" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="6" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="10">
+                      <Action OrderNumber="8" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="6" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo1.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="9" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="7" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="10">
+                      <Action OrderNumber="9" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="7" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo1.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="10" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="727324a7-1d08-4f0d-a472-61bd9dadb88d" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                      <Action OrderNumber="10" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="200bfe5d-8c5a-4b6d-b4e6-489ffb2110f0" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="50">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="And">
@@ -2024,130 +2148,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="安全点播报" Id="727324a7-1d08-4f0d-a472-61bd9dadb88d" RegularExpression="">
-                    <Actions>
-                      <Action OrderNumber="1" ListVariableOp="Set" ListVariableExpressionType="Numeric" ListVariableName="dihuo2" ListVariableExpression="8" ListVariableIndex="${lvar:dihuo2.indexof(0)}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="ListVariable">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="dihuo2" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="ListContains" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="1A之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(0)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="3" LogMessageText="AT_Subtitle:去1A点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="1A之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(0)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="4" LogLevel="-1" UseTTSTextExpression="1B之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="5" LogMessageText="AT_Subtitle:去1B点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="1B之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(1)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="6" LogLevel="-1" UseTTSTextExpression="2B之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="7" LogMessageText="AT_Subtitle:去2B点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="2B之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(2)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="8" LogLevel="-1" UseTTSTextExpression="2C之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="9" LogMessageText="AT_Subtitle:去2C点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="2C之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(3)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="10" LogLevel="-1" UseTTSTextExpression="3C之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="11" LogMessageText="AT_Subtitle:去3C点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="3C之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(4)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="12" LogLevel="-1" UseTTSTextExpression="3D之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="13" LogMessageText="AT_Subtitle:去3D点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="3D之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(5)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="14" LogLevel="-1" UseTTSTextExpression="4D之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="15" LogMessageText="AT_Subtitle:去4D点:10:200:-450:" LogProcess="True" UseTTSTextExpression="4D之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(6)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="16" LogLevel="-1" UseTTSTextExpression="4A之间安全" UseTTSRateExpression="2" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(0)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="17" LogMessageText="AT_Subtitle:去4A点:10:200:-450:安全点:" LogProcess="True" UseTTSTextExpression="4A之间安全" UseTTSRateExpression="5" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(7)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:dihuo2.indexof(0)} " ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                        <Conditions />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -2358,7 +2358,7 @@
                           </Action>
                           <Action OrderNumber="3" LogMessageText="AT_Subtitle:中间放冰圈2:20:200:-400:buff2:" LogProcess="True" PlaySpeechMyself="True" UseTTSTextExpression="中央冰圈2" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
                             <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="99E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="99e" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
                           <Action OrderNumber="4" LogMessageText="AT_Subtitle:中间放石化2:20:200:-400:buff2:" LogProcess="True" PlaySpeechMyself="True" UseTTSTextExpression="近点石化2" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
@@ -2502,47 +2502,42 @@
                               <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="99f" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="5" LogMessageText="AT_Subtitle:中间放冰圈3:20:200:-350:buff3:" LogProcess="True" PlaySpeechMyself="True" UseTTSTextExpression="去里面放冰圈" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="99e" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="6" LogMessageText="AT_Subtitle:中间放分摊3:20:200:-350:buff3:" LogProcess="True" PlaySpeechMyself="True" UseTTSTextExpression="中央分摊3" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                          <Action OrderNumber="5" LogMessageText="AT_Subtitle:中间放分摊3:20:200:-350:buff3:" LogProcess="True" PlaySpeechMyself="True" UseTTSTextExpression="中央分摊3" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="996" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="7" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="分散放火" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="16500">
+                          <Action OrderNumber="6" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="分散放火" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="16500">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="99c" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="8" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去外面放核爆" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                          <Action OrderNumber="7" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去外面放核爆" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="690" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="9" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去里面放冰圈" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                          <Action OrderNumber="8" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去里面放冰圈" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="99e" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="10" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去里面放背对" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                          <Action OrderNumber="9" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去里面放背对" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="998" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="11" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去外面放风圈" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                          <Action OrderNumber="10" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去外面放风圈" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="99f" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="12" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去里面分摊" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                          <Action OrderNumber="11" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="去里面分摊" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${DebuffName}" ExpressionTypeL="String" ExpressionR="996" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="13" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="记得背对" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2500">
+                          <Action OrderNumber="12" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="记得背对" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2500">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -2570,11 +2565,15 @@
                     <Actions>
                       <Action OrderNumber="1" LogLevel="-1" PlaySpeechMyself="True" UseTTSTextExpression="二运，八方站位" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="2" LogLevel="-1" VariableOp="SetString" VariableName="Phasetag" VariableExpression="P2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="3" LogLevel="-1" VariableOp="SetString" VariableName="Phasetag" VariableExpression="P2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="EnableTrigger" TriggerId="d1e2f28f-9497-4dfa-9de7-49a01188f95e" Enabled="False" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" LogLevel="-1" VariableOp="SetString" VariableName="Phasetag" VariableExpression="P2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="d1e2f28f-9497-4dfa-9de7-49a01188f95e" Enabled="False" ActionType="Trigger" ExecutionDelayExpression="20000">
+                        <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -2589,6 +2588,16 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="false" Name="收集日志" Id="d1e2f28f-9497-4dfa-9de7-49a01188f95e" RegularExpression="^\[..:..:..\....\] 1A:........:(?&lt;RoleName&gt;[^.]*) gains the effect of (99E|998|997|99e|99f|998|99C|690)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="本体" ListVariableExpression="${_event}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${RoleName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -2631,9 +2640,6 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="EnableTrigger" TriggerId="a838c4c6-9743-428c-a21f-d659b35bd929" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="219dd5b7-9ac3-433d-a93d-df4c17d324c6" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
