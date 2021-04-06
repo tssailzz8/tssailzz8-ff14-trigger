@@ -50,9 +50,9 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="土神位置" Id="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" RegularExpression="^.{15}22:(?&lt;id&gt;[^:]*):泰坦:(?:[^:]*:){2}00">
+          <Trigger Enabled="true" Name="TTS" Id="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" RegularExpression="^.{15}22:(?&lt;id&gt;[^:]*):泰坦:(?:[^:]*:){2}00">
             <Actions>
-              <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="A A A" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="2000">
+              <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="A A A" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" ExecutionDelayExpression="1500">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="round(4-arctan2(${_ffxiventity[${var:绝神兵_土神ID}].x}-100,${_ffxiventity[${var:绝神兵_土神ID}].y}-100)*4/pi)%8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -60,6 +60,7 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:time}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="C C C" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="And">
@@ -69,6 +70,7 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:time}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="3" LogLevel="-1" UseTTSTextExpression="B B B" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="And">
@@ -78,6 +80,7 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:time}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="4" LogLevel="-1" UseTTSTextExpression="D D D " TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="And">
@@ -87,17 +90,93 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:time}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="time" VariableExpression="${var:time}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="100" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="6" VariableOp="UnsetRegex" VariableName="time" VariableExpression="${var:time}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="100" Asynchronous="False">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:time}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="土神位置" Id="a7004465-e265-41c3-8f06-3123b41ffbf1" RegularExpression="^.{15}22:(?&lt;id&gt;[^:]*):泰坦:(?:[^:]*:){2}00">
+            <Actions>
+              <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="A A A" VariableOp="SetNumeric" VariableName="土神x" VariableExpression="${_ffxiventity[${var:绝神兵_土神ID}].x}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${var:time}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${var:time}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="time" VariableExpression="${var:time}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" VariableOp="UnsetRegex" VariableName="time" VariableExpression="${var:time}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:time}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="4" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:土神x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${var:绝神兵_土神ID}].x}" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="5" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:土神x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${var:绝神兵_土神ID}].x}" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="6" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:土神x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${var:绝神兵_土神ID}].x}" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="7" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:土神x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${var:绝神兵_土神ID}].x}" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="8" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:土神x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${var:绝神兵_土神ID}].x}" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="9" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:土神x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${var:绝神兵_土神ID}].x}" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="10" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:土神x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${var:绝神兵_土神ID}].x}" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="11" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="aaffd077-a6f0-43c2-ba20-5d2fd80b75d4" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:土神x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${var:绝神兵_土神ID}].x}" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>

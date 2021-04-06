@@ -227,7 +227,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="RegexMatch" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Name="禁止接近" Id="1270205f-4e40-421c-9710-762a8c7eaf85" RegularExpression="^.{14} 26:[0-9A-F]{8}:(?&lt;name&gt;.*?):.*:0464:" PeriodRefire="Deny" RefirePeriodExpression="120000">
+                  <Trigger Enabled="false" Name="禁止接近" Id="1270205f-4e40-421c-9710-762a8c7eaf85" RegularExpression="^.{14} 26:[0-9A-F]{8}:(?&lt;name&gt;.*?):.*:0464:" PeriodRefire="Deny" RefirePeriodExpression="120000">
                     <Actions>
                       <Action OrderNumber="1" VariableOp="SetString" VariableName="nothing" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
@@ -415,14 +415,14 @@
                         </Condition>
                         <Conditions />
                       </Action>
-                      <Action OrderNumber="5" UseTTSTextExpression="点名雷，去左边D点" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                      <Action OrderNumber="5" UseTTSTextExpression="点名雷，去右边B点" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:残暴id}].x}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                         </Condition>
                         <Conditions />
                       </Action>
-                      <Action OrderNumber="6" UseTTSTextExpression="点名雷，去右边B点" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                      <Action OrderNumber="6" UseTTSTextExpression="点名雷，去左边D点" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:残暴id}].x}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
@@ -438,11 +438,9 @@
                     <Actions>
                       <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="残暴id" VariableExpression="${actorId}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -1535,7 +1533,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="麻将1" Id="fe3e4e9a-4044-45e3-a281-30c8e11ce089" RegularExpression="] 1B:1[0-9A-Z]{7}:(?&lt;player&gt;.*?):(?:[^:]*:){2}(?&lt;shadow_id&gt;.*?):0000:0000:0000:">
+                  <Trigger Enabled="false" Name="麻将1" Id="fe3e4e9a-4044-45e3-a281-30c8e11ce089" RegularExpression="] 1B:1[0-9A-Z]{7}:(?&lt;player&gt;.*?):(?:[^:]*:){2}(?&lt;shadow_id&gt;.*?):0000:0000:0000:">
                     <Actions>
                       <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="shadow_id_min" VariableExpression="hex2dec(${shadow_id})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
