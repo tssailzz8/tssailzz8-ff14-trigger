@@ -5,160 +5,865 @@
       <Folder Id="1213b51a-32ef-4678-96de-e52d82922161" Name="a.航班确认及选饵表" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="这轮的" Id="417986f0-a7ee-41c2-9ff1-796b4232dac2" RegularExpression="^01\|[^\|]*\|384\||这轮的" Description="route:1   海峡北线&#xD;&#xA;      0|2 海面航线&#xD;&#xA;&#xD;&#xA;hour:0|3 日，1昏，2夜晚">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="这轮的航线" Id="9143d964-e398-4b60-a123-e2ce67a32523" RegularExpression="^01\|[^\|]*\|384\||这轮的">
             <Actions>
-              <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="period_py" VariableExpression="${numeric:floor((${_systemtime}+6360-86400-1200)%518400/172800)}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="day" VariableExpression="${numeric:floor((${_timestamp}-(1593270000+32400)+32400-2700)/86400)}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
-              <Action OrderNumber="2" LogLevel="-1" VariableOp="SetNumeric" VariableName="fish_route" VariableExpression="${numeric:floor((${_systemtime}-840-1200)%14400/7200)+floor((${_systemtime}+6360-1200)%172800/86400)+1}%2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="hour" VariableExpression="${numeric:floor(((${_timestamp}+32400-2700)/3600)%24)}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
-              <Action OrderNumber="3" LogLevel="-1" VariableOp="SetNumeric" VariableName="fish_hour" VariableExpression="${numeric:floor((${_systemtime}+6360-1200)%43200/14400)}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="hour" VariableExpression="${numeric:if(${numeric:${var:hour}%2}=0,${var:hour}+1,${var:hour}+2)}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
-              <Action OrderNumber="4" LogLevel="-1" VariableOp="SetString" VariableName="period1" VariableExpression="白天" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="day" VariableExpression="${var:day}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:hour}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="hour" VariableExpression="${var:hour}-24" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:hour}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="voyageNumber" VariableExpression="${numeric:floor(${var:hour}/2)}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
-              <Action OrderNumber="5" LogLevel="-1" VariableOp="SetString" VariableName="period2" VariableExpression="黄昏" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="7" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="destIndex" VariableExpression="${numeric:((${var:day}+${var:voyageNumber})%4+4)%4}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
-              <Action OrderNumber="6" LogLevel="-1" VariableOp="SetString" VariableName="period0" VariableExpression="夜晚" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="8" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="timeIndex" VariableExpression="${numeric:((${var:day}+${var:voyageNumber})%12+12)%12}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
-              <Action OrderNumber="7" LogLevel="-1" VariableOp="SetString" VariableName="fishery1" VariableExpression="梅尔托尔海峡南-${var:period${numeric:(${var:fish_hour}+1+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <Action OrderNumber="9" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="timeIndex" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:timeIndex}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:timeIndex}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
                 </Condition>
-                <Conditions />
               </Action>
-              <Action OrderNumber="8" LogLevel="-1" VariableOp="SetString" VariableName="fishery2" VariableExpression="加拉迪翁湾外海-${var:period${numeric:(${var:fish_hour}+2+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <Action OrderNumber="10" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="timeIndex" VariableExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:timeIndex}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:timeIndex}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
                 </Condition>
-                <Conditions />
               </Action>
-              <Action OrderNumber="9" LogLevel="-1" VariableOp="SetString" VariableName="fishery3" VariableExpression="梅尔托尔海峡北-${var:period${numeric:(${var:fish_hour}+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <Action OrderNumber="11" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="timeIndex" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:timeIndex}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:timeIndex}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
                 </Condition>
-                <Conditions />
               </Action>
-              <Action OrderNumber="10" LogLevel="-1" VariableOp="SetString" VariableName="fishery1" VariableExpression="加拉迪翁湾外海-${var:period${numeric:(${var:fish_hour}+1+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="0|2" ExpressionTypeR="Numeric" ConditionType="RegexMatch" />
-                </Condition>
-                <Conditions />
+              <Action OrderNumber="12" LogLevel="-1" VariableOp="SetString" VariableName="period0" VariableExpression="白天" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="11" LogLevel="-1" VariableOp="SetString" VariableName="fishery2" VariableExpression="梅尔托尔海峡南-${var:period${numeric:(${var:fish_hour}+2+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="0|2" ExpressionTypeR="Numeric" ConditionType="RegexMatch" />
-                </Condition>
-                <Conditions />
+              <Action OrderNumber="13" LogLevel="-1" VariableOp="SetString" VariableName="period1" VariableExpression="黄昏" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="12" LogLevel="-1" VariableOp="SetString" VariableName="fishery3" VariableExpression="罗塔诺海海面-${var:period${numeric:(${var:fish_hour}+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="14" LogLevel="-1" VariableOp="SetString" VariableName="period2" VariableExpression="夜晚" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="15" LogLevel="-1" VariableOp="SetString" VariableName="fishery1" VariableExpression="加拉迪翁湾外海-${var:period${numeric:(${var:timeIndex}+1)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="50" Description="R- &#xD;&#xA;罗塔诺海航线" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="0|2" ExpressionTypeR="Numeric" ConditionType="RegexMatch" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
-                <Conditions />
+              </Action>
+              <Action OrderNumber="16" LogLevel="-1" VariableOp="SetString" VariableName="fishery2" VariableExpression="梅尔托尔海峡南-${var:period${numeric:(${var:timeIndex}+2)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="17" LogLevel="-1" VariableOp="SetString" VariableName="fishery3" VariableExpression="罗塔诺海海面-${var:period${numeric:(${var:timeIndex}+3)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="18" LogLevel="-1" VariableOp="SetString" VariableName="fishery1" VariableExpression="谢尔达莱群岛近海-${var:period${numeric:(${var:timeIndex}+1)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Description="B- &#xD;&#xA;绯汐海航线" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="19" LogLevel="-1" VariableOp="SetString" VariableName="fishery2" VariableExpression="罗塔诺海海面-${var:period${numeric:(${var:timeIndex}+2)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="20" LogLevel="-1" VariableOp="SetString" VariableName="fishery3" VariableExpression="罗斯利特湾近海-${var:period${numeric:(${var:timeIndex}+3)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="21" LogLevel="-1" VariableOp="SetString" VariableName="fishery1" VariableExpression="梅尔托尔海峡南-${var:period${numeric:(${var:timeIndex}+1)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Description="n-梅尔托尔海峡北航线" DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="22" LogLevel="-1" VariableOp="SetString" VariableName="fishery2" VariableExpression="加拉迪翁湾外海-${var:period${numeric:(${var:timeIndex}+2)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="23" LogLevel="-1" VariableOp="SetString" VariableName="fishery3" VariableExpression="梅尔托尔海峡北-${var:period${numeric:(${var:timeIndex}+3)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="24" LogLevel="-1" VariableOp="SetString" VariableName="fishery1" VariableExpression="谢尔达莱群岛近海-${var:period${numeric:(${var:timeIndex}+1)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Description="T-罗斯利特湾航线 " DescriptionOverride="True">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="25" LogLevel="-1" VariableOp="SetString" VariableName="fishery2" VariableExpression="罗塔诺海海面-${var:period${numeric:(${var:timeIndex}+2)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="26" LogLevel="-1" VariableOp="SetString" VariableName="fishery3" VariableExpression="罗斯利特湾近海-${var:period${numeric:(${var:timeIndex}+3)%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:destIndex}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="27" LogLevel="-1" MessageBoxText="${numeric:floor(((${_timestamp}+32400-2700)/3600)%24)}" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="MessageBox">
+                <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="转场" Id="86c13ef3-4745-4bbb-bad3-9ff405051af2" RegularExpression="^.{14} 00:0044:福尔扎吉尔:到达|这次">
+          <Trigger Enabled="true" Name="转场" Id="a6035569-8a78-4585-959e-0497c14cf166" RegularExpression="^.{14} 00:0044:福尔扎吉尔:到达|即将前往下一个海域" PeriodRefire="Deny" RefirePeriodExpression="120000">
             <Actions>
               <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="map" VariableExpression="${var:map}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
-              <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="fishPlace" VariableExpression="${var:fishery${var:map}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="10">
+              <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="fishPlace" VariableExpression="${var:fishery${var:map}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" ExecutionDelayExpression="50">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="到了" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
-              <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:磷虾 直杆:磷虾 幻海:刺螠" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="10">
+              <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:刺螠 直杆:磷虾 幻海:石沙蚕" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson" ExecutionDelayExpression="10">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海" ExpressionTypeR="String" ConditionType="RegexMatch" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:磷虾 直杆:刺螠 幻海:磷虾" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南" ExpressionTypeR="String" ConditionType="RegexMatch" />
                 </Condition>
-                <Conditions />
               </Action>
-              <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:沙蚕 直杆:沙蚕 幻海:沙蚕" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+              <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:石沙蚕 直杆:石沙蚕蚕 幻海:石沙蚕" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北" ExpressionTypeR="String" ConditionType="RegexMatch" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="7" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:刺螠 直杆:磷虾 幻海:刺螠" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面" ExpressionTypeR="String" ConditionType="RegexMatch" />
                 </Condition>
-                <Conditions />
+              </Action>
+              <Action OrderNumber="8" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:石沙蚕 直杆:磷虾 幻海:磷虾" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="谢尔达莱群岛近海" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:磷虾 直杆:磷虾 幻海:刺螠" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="绯汐海近海" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="10" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 普通:刺螠 直杆:磷虾 幻海:石沙蚕" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗斯利特湾近海" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="11" FolderOp="DisableFolder" FolderId="c339ab60-d62a-4e6c-9418-0f57533993da" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${var:fishery${var:map}}" LogMessageText="${var:fishery${var:map}}" LogLevel="Info" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
+                <LogReparse>True</LogReparse>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" FolderOp="DisableFolder" FolderId="5522eb01-3186-4293-964c-2fae2f4afe98" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${var:fishery${var:map}}" LogMessageText="${var:fishery${var:map}}" LogLevel="Info" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
+                <LogReparse>True</LogReparse>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" FolderOp="DisableFolder" FolderId="7c91268f-7fa8-4ba6-80a0-5531f3cf7111" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${var:fishery${var:map}}" LogMessageText="${var:fishery${var:map}}" LogLevel="Info" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
+                <LogReparse>True</LogReparse>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="14" FolderOp="DisableFolder" FolderId="730988f1-e36c-4c7d-acc3-afb8ccc1d7f0" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${var:fishery${var:map}}" LogMessageText="${var:fishery${var:map}}" LogLevel="Info" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
+                <LogReparse>True</LogReparse>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="15" FolderOp="DisableFolder" FolderId="fe700115-0900-4e4c-a3be-68e68abebe82" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${var:fishery${var:map}}" LogMessageText="${var:fishery${var:map}}" LogLevel="Info" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
+                <LogReparse>True</LogReparse>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="16" FolderOp="DisableFolder" FolderId="3f64edc4-337d-421b-86f0-5c4a54ce4e98" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${var:fishery${var:map}}" LogMessageText="${var:fishery${var:map}}" LogLevel="Info" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
+                <LogReparse>True</LogReparse>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="17" FolderOp="DisableFolder" FolderId="50b6904c-2a94-483a-a02c-efb0a72f3991" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${var:fishery${var:map}}" LogMessageText="${var:fishery${var:map}}" LogLevel="Info" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
+                <LogReparse>True</LogReparse>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="18" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e ${var:fishery${var:map}}" LogMessageText="${var:fishery${var:map}}" LogProcess="True" LogLevel="Info" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="下一轮航班路线,要查询当前航线不得晚于10分（如2:09发还是2点的航线，2:15发就是4点的航线了）" Id="1b1cf2a2-ec86-4491-b76e-028616765c1c" RegularExpression="下轮的" Description="route:1   海峡北线&#xD;&#xA;      0|2 海面航线&#xD;&#xA;&#xD;&#xA;hour:0|3 日，1昏，2夜晚">
+          <Trigger Enabled="true" Name="航线查询" Id="1328d364-8af1-44f3-afe7-73d03a6558ee" RegularExpression="航线查询">
             <Actions>
-              <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="period_py" VariableExpression="${numeric:floor((${_systemtime}+6360-86400)%518400/172800)}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="9143d964-e398-4b60-a123-e2ce67a32523" TriggerForce="regexp" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" LogLevel="-1" VariableOp="SetNumeric" VariableName="fish_route" VariableExpression="${numeric:floor((${_systemtime}-840)%14400/7200)+floor((${_systemtime}+6360)%172800/86400)+1}%2" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 抛竿" NamedCallbackName="DoTextCommand" NamedCallbackParam="/e ${var:fishery1}→${var:fishery2}→${var:fishery3}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="1500">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" LogLevel="-1" VariableOp="SetNumeric" VariableName="fish_hour" VariableExpression="${numeric:floor((${_systemtime}+6360)%43200/14400)}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="4" LogLevel="-1" VariableOp="SetString" VariableName="period1" VariableExpression="白天" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="5" LogLevel="-1" VariableOp="SetString" VariableName="period2" VariableExpression="黄昏" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="6" LogLevel="-1" VariableOp="SetString" VariableName="period0" VariableExpression="夜晚" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="7" LogLevel="-1" VariableOp="SetString" VariableName="fishery1" VariableExpression="梅尔托尔海峡南-${var:period${numeric:(${var:fish_hour}+1+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^900$" ZoneFilterEnabled="True" Id="369a14ff-2bea-4995-af5f-84fe3b87cbe4" ZoneFilterRegularExpression="^出海垂钓$" Name="海域" Enabled="true">
+        <Folders>
+          <Folder Id="3f64edc4-337d-421b-86f0-5c4a54ce4e98" Name="梅尔托尔海峡南" Enabled="false">
+            <Folders>
+              <Folder Id="b0590461-6a43-4076-9e5f-18ae0c7d14fd" Name="晚上以小钓大" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="22a3a6f3-ef9d-4922-ab7d-8e232636d854" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="15" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="刺螠" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="5a81f4a5-809f-45d4-b033-a1a4ab591350" Name="白天/黄昏" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="d8d7e81d-a7ff-497f-8caf-bff2c2e66c36" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="上钩" Id="7b091323-b2aa-4025-a7e7-455624f1f42b" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="5522eb01-3186-4293-964c-2fae2f4afe98" Name="加拉迪翁湾外海" Enabled="false">
+            <Folders>
+              <Folder Id="d4e78430-965b-4dca-b4f0-f7ee2888dc40" Name="白天/黄昏" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="ebbf50ef-1f4b-4416-8618-f3f63316d0f0" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="15" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="刺螠" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="9dcd0489-4d25-4012-98e3-e98643e7eb8c" Name="晚上以小钓大" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="3bf41654-8f3f-4854-bfd3-ff9cfc75559f" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="15" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="刺螠" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="上钩" Id="39c104ff-eb6d-40b8-80c8-ea6ed844ffd5" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="fe700115-0900-4e4c-a3be-68e68abebe82" Name="梅尔托尔海峡北" Enabled="false">
+            <Folders>
+              <Folder Id="93cde92b-c24c-47b0-a329-cda7aa611d31" Name="白天/黄昏/晚上" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="cdcf64f0-7056-403d-ac07-4421043351b8" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北-晚上" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="5.9" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="上钩" Id="f5306aab-93c9-49ab-99b2-83ab15449395" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="730988f1-e36c-4c7d-acc3-afb8ccc1d7f0" Name="罗塔诺海海面" Enabled="false">
+            <Folders>
+              <Folder Id="50d02a25-6095-4492-95ed-24bf61a8246e" Name="白天/黄昏/晚上" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="86289c13-d85f-4898-a165-31a7926f395a" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="刺螠" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-晚上" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="鳞虾" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="上钩" Id="a2d48e90-5eee-4a61-95e1-77ef95e47708" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="50b6904c-2a94-483a-a02c-efb0a72f3991" Name="谢尔达莱群岛近海" Enabled="false">
+            <Folders>
+              <Folder Id="83b0f4d9-4549-4c14-81dc-a450a39f91b6" Name="白天/黄昏/晚上" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="321386d2-39d0-42b1-ac2d-8081e77a2275" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="谢尔达莱群岛近海-晚上" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="鳞虾" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="谢尔达莱群岛近海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="谢尔达莱群岛近海-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            </ConditionGroup>
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="上钩" Id="84094fe6-4b73-4c99-8e1f-09e78a80d318" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="谢尔达莱群岛近海" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="7c91268f-7fa8-4ba6-80a0-5531f3cf7111" Name="罗斯利特湾近海" Enabled="true">
+            <Folders>
+              <Folder Id="e7f3102d-f110-4a0e-a431-f147495b32d6" Name="白天/黄昏" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="5a4a5a12-5f67-4c18-92ef-fb9b3421999a" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="15" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="刺螠" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="9c2f3417-8fba-4874-b057-af6c5729448e" Name="晚上以小钓大" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="75d7566f-2811-4012-8537-8dc3aafa0a53" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="15" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="刺螠" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="上钩" Id="7af83020-0086-4f5d-a412-91e0cb5fc456" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="c339ab60-d62a-4e6c-9418-0f57533993da" Name="绯汐海近海" Enabled="false">
+            <Folders>
+              <Folder Id="b3e985ff-6f79-4dff-b487-79255b8329b9" Name="白天/黄昏" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="ea7ca5a1-4a78-4981-9e73-e5d238110a9d" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="15" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="刺螠" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="绯汐海近海" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="3b3a6d0a-2757-4496-84db-8b1570726ae8" Name="晚上以小钓大" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="上钩" Id="dd3236da-d37d-4124-89f6-b91c22370aec" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="15" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="石沙蚕" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                            <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="刺螠" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="绯汐海近海" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="上钩" Id="cc04122b-25da-4fbc-9c30-f0e4180c1d72" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="绯汐海近海" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers />
+      </Folder>
+      <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^900$" Id="97920cb7-f088-4ab6-904f-a1e5c2be3b6e" Name="天气" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="数据收集" Id="7d20dffd-c9c5-4750-b87d-0e8498fff0be" RegularExpression="^.{15}00:0000:102:.{8}:010(?&lt;id&gt;[0-9A-F]{1})">
+            <Actions>
+              <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="weather" VariableExpression="小雪" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="8" LogLevel="-1" VariableOp="SetString" VariableName="fishery2" VariableExpression="加拉迪翁湾外海-${var:period${numeric:(${var:fish_hour}+2+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="weather" VariableExpression="晴朗" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="9" LogLevel="-1" VariableOp="SetString" VariableName="fishery3" VariableExpression="梅尔托尔海峡北-${var:period${numeric:(${var:fish_hour}+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="weather" VariableExpression="暴雨" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="10" LogLevel="-1" VariableOp="SetString" VariableName="fishery1" VariableExpression="加拉迪翁湾外海-${var:period${numeric:(${var:fish_hour}+1+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="weather" VariableExpression="阴云" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="0|2" ExpressionTypeR="Numeric" ConditionType="RegexMatch" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="11" LogLevel="-1" VariableOp="SetString" VariableName="fishery2" VariableExpression="梅尔托尔海峡南-${var:period${numeric:(${var:fish_hour}+2+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="weather" VariableExpression="薄雾" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="0|2" ExpressionTypeR="Numeric" ConditionType="RegexMatch" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="12" LogLevel="-1" VariableOp="SetString" VariableName="fishery3" VariableExpression="罗塔诺海海面-${var:period${numeric:(${var:fish_hour}+${var:period_py})%3}}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+              <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="weather" VariableExpression="碧空" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fish_route}" ExpressionTypeL="Numeric" ExpressionR="0|2" ExpressionTypeR="Numeric" ConditionType="RegexMatch" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
             </Actions>
@@ -166,147 +871,97 @@
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="369a14ff-2bea-4995-af5f-84fe3b87cbe4" Name="海域" Enabled="true">
+      <Folder Id="19279889-a8e4-4e86-bed1-9f46ec12bbcf" Name="其他功能" Enabled="true">
         <Folders>
-          <Folder Id="aab4403b-12bf-40be-912f-6183faab3a4a" Name="幻海流" Enabled="true">
+          <Folder Id="59fb29af-4c24-46ae-926b-1570b913bbf3" Name="幻海流" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="遇见幻海流" Id="e39e2823-e81d-4b6e-a297-6c6e99af8156" RegularExpression="^.{15}00:0000:102:.{8}:0191:">
+              <Trigger Enabled="true" Name="遇见幻海流" Id="1ad779c4-e7d7-433e-88ae-38d71486da39" RegularExpression="^.{15}00:0000:102:.{8}:0191:">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="111" VariableOp="SetNumeric" VariableName="huanhai" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 中断" NamedCallbackName="sendkey" NamedCallbackParam="87" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="石沙蚕" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="磷虾" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="谢尔达莱群岛近海-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="绯汐海近海-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="谢尔达莱群岛近海-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="刺螠" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
-                  <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="万能拟饵" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                  <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="重铁板钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="7" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="小虾肉笼" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="8" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="小虾肉笼" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="a107a5c0-d1a0-48f8-ac72-0b13806cad4f" Enabled="False" ActionType="Trigger">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="9" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="火萤" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
-                  <Action OrderNumber="10" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="鱼饵换成${var:bait}" VariableOp="SetString" VariableName="bait" VariableExpression="火萤" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
+                  <Action OrderNumber="10" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="bait" VariableExpression="乌贼丝" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="谢尔达莱群岛近海-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
                   </Action>
-                  <Action OrderNumber="11" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 鱼饵换成${var:bait}" NamedCallbackName="DoTextCommand" NamedCallbackParam="/e 鱼饵换成${var:bait}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                  <Action OrderNumber="11" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="鱼饵换成${var:bait}" VariableOp="SetString" VariableName="bait" VariableExpression="火萤" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
-                  <Action OrderNumber="12" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 耐心" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 耐心" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                  <Action OrderNumber="12" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/e 鱼饵换成${var:bait}" NamedCallbackName="DoTextCommand" NamedCallbackParam="/e 鱼饵换成${var:bait}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="10">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="13" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 耐心" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 耐心" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                    <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="幻海消失" Id="e06d30e2-4fa0-40d5-a819-12fb18c52dc2" RegularExpression="^.{15}00:0000:102:.{8}:0101:">
+              <Trigger Enabled="true" Name="幻海消失" Id="f83c01de-d058-407a-b244-3f5940fbe464" RegularExpression="^.{15}00:0000:102:.{8}:0101:">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="111" VariableName="huanhai" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="换回鱼饵" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 中断" NamedCallbackName="sendkey" NamedCallbackParam="87" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="上钩" Id="a107a5c0-d1a0-48f8-ac72-0b13806cad4f" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
-                <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 双重提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 双重提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionGroup Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </ConditionGroup>
-                        <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                        <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                        <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionGroup Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </ConditionGroup>
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionGroup Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海-黄昏" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北-白天" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </ConditionGroup>
-                      </ConditionGroup>
-                      <ConditionSingle Enabled="true" ExpressionL="${var:player_bait}" ExpressionTypeL="String" ExpressionR="${var:bait}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:huanhai}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="false" Name="小虾肉笼，钓蓝鱼(待做)" Id="bff2b73f-1179-4232-a520-5281a53aa765" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="SystemBeep">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南-夜晚" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="false" Name="掉到hq" Id="bd47f012-6069-4d2b-8fec-9fead0025be8" RegularExpression="^.{15}00:0843:.*?成功钓上了.{1}(?&lt;fish&gt;.+?)\（">
+              <Trigger Enabled="false" Name="掉到hq" Id="97b40f5f-ca85-4c4e-a458-545f3e77624f" RegularExpression="^.{15}00:0843:.*?成功钓上了.{1}(?&lt;fish&gt;.+?)\（">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="掉到hq" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
@@ -316,10 +971,10 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="ee5f14f0-a7b3-44e3-a5ae-1b05d9c12673" Name="记录钓鱼时间" Enabled="true">
+          <Folder Id="d88596c0-098b-49e9-adc1-5990a2f0a325" Name="记录钓鱼时间" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="提杆时间" Id="c216d685-d2e5-4ef2-8a70-92d3b56bd913" RegularExpression="^.{15}00:0000:.+FishBite">
+              <Trigger Enabled="true" Name="提杆时间" Id="8c102181-e04b-4971-aa49-8842a47457a8" RegularExpression="^.{15}00:0000:.+FishBite">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="FT" VariableExpression="(${_timestampms}-${var:SFT})/1000" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -327,7 +982,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="抛竿时间" Id="8c1a6056-2ca7-4c13-a700-4627124fbcef" RegularExpression="^.{15}00:08c3:(?&lt;CasterName&gt;[^:]+?)在(?&lt;where&gt;.*?)甩出了鱼线开始钓鱼。|.{15}00:08c3:(?&lt;CasterName&gt;[^:]+?)开始利用上钩的.+尝试以小钓大。">
+              <Trigger Enabled="true" Name="抛竿时间" Id="ec0568df-b79f-4dcd-9ac3-d9297642ddec" RegularExpression="^.{15}00:08c3:(?&lt;CasterName&gt;[^:]+?)在(?&lt;where&gt;.*?)甩出了鱼线开始钓鱼。|.{15}00:08c3:(?&lt;CasterName&gt;[^:]+?)开始利用上钩的.+尝试以小钓大。">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="SFT" VariableExpression="${_timestampms}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -339,210 +994,86 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="3f64edc4-337d-421b-86f0-5c4a54ce4e98" Name="梅尔托尔海峡南" Enabled="true">
+          <Folder Id="500413a9-6f23-4f3b-b1c5-0279807105a0" Name="启用" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="放生" Id="2c0952d1-469c-4129-bad7-d8a9286e9715" RegularExpression="(?&lt;name&gt;[^:]*?)成功钓上了.*">
+              <Trigger Enabled="true" Name="绯汐海近海" Id="83d02342-7409-47d6-a3ce-ca6e5212bb70" RegularExpression="^绯汐海近海">
                 <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 放生" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 放生" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="24" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="91eb4d32-42ea-4b42-944f-ec157feea7a8" TriggerForce="regexp" ActionType="Trigger">
+                  <Action OrderNumber="1" FolderId="c339ab60-d62a-4e6c-9418-0f57533993da" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="上钩" Id="7b091323-b2aa-4025-a7e7-455624f1f42b" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+              <Trigger Enabled="true" Name="加拉迪翁湾外海" Id="65215b5e-ae83-48d3-b38b-73b7eb53054c" RegularExpression="^加拉迪翁湾外海">
                 <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                  <Action OrderNumber="1" FolderId="5522eb01-3186-4293-964c-2fae2f4afe98" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡南" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="5522eb01-3186-4293-964c-2fae2f4afe98" Name="加拉迪翁湾外海" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="放生" Id="4a246763-a8f9-4d0e-9b82-eda3a9828851" RegularExpression="(?&lt;name&gt;[^:]*?)成功钓上了.*">
+              <Trigger Enabled="true" Name="罗斯利特湾近海" Id="53a908a5-ce36-4aa9-ba4b-5e65e229bdab" RegularExpression="^罗斯利特湾近海">
                 <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 放生" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 放生" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="14" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="25" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="91eb4d32-42ea-4b42-944f-ec157feea7a8" TriggerForce="regexp" ActionType="Trigger">
+                  <Action OrderNumber="1" FolderId="7c91268f-7fa8-4ba6-80a0-5531f3cf7111" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="上钩" Id="39c104ff-eb6d-40b8-80c8-ea6ed844ffd5" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+              <Trigger Enabled="true" Name="罗塔诺海海面" Id="01f0a3e4-8c54-49fb-b015-99dd4ef76db0" RegularExpression="^罗塔诺海海面">
                 <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                  <Action OrderNumber="1" FolderId="730988f1-e36c-4c7d-acc3-afb8ccc1d7f0" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="加拉迪翁湾外海" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="fe700115-0900-4e4c-a3be-68e68abebe82" Name="梅尔托尔海峡北" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="放生" Id="14744926-4375-4cd0-9ad1-f5dfba978c67" RegularExpression="(?&lt;name&gt;[^:]*?)成功钓上了.*">
+              <Trigger Enabled="true" Name="梅尔托尔海峡北" Id="27c923c2-8806-44d9-a86c-fa1655deca56" RegularExpression="^梅尔托尔海峡北">
                 <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 放生" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 放生" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="91eb4d32-42ea-4b42-944f-ec157feea7a8" TriggerForce="regexp" ActionType="Trigger">
+                  <Action OrderNumber="1" FolderId="fe700115-0900-4e4c-a3be-68e68abebe82" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="上钩" Id="f5306aab-93c9-49ab-99b2-83ab15449395" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
+              <Trigger Enabled="true" Name="梅尔托尔海峡南" Id="714e0ff8-05c7-4851-8b3d-e4b34857282e" RegularExpression="^梅尔托尔海峡南">
                 <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                  <Action OrderNumber="1" FolderId="3f64edc4-337d-421b-86f0-5c4a54ce4e98" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="梅尔托尔海峡北" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="730988f1-e36c-4c7d-acc3-afb8ccc1d7f0" Name="罗塔诺海海面" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="放生" Id="484d9175-725f-40b4-b45a-860e2a3658bc" RegularExpression="(?&lt;name&gt;[^:]*?)成功钓上了.*">
+              <Trigger Enabled="true" Name="谢尔达莱群岛近海" Id="cd2038f6-228a-49fb-97bc-a73401e0800f" RegularExpression="^谢尔达莱群岛近海">
                 <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 放生" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 放生" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionGroup Enabled="true" Grouping="Not">
-                        <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="15" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                        <ConditionSingle Enabled="true" ExpressionL="${var:FT}" ExpressionTypeL="Numeric" ExpressionR="28" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="91eb4d32-42ea-4b42-944f-ec157feea7a8" TriggerForce="regexp" ActionType="Trigger">
+                  <Action OrderNumber="1" FolderId="50b6904c-2a94-483a-a02c-efb0a72f3991" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Folder">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="true" Name="上钩" Id="a2d48e90-5eee-4a61-95e1-77ef95e47708" RegularExpression="^.{15}00:0000:.+FishBite:{&quot;type&quot;:(?&lt;type&gt;.*?)}">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="type" VariableExpression="${type}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 提钩" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 提钩" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="300">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:fishPlace}" ExpressionTypeL="String" ExpressionR="罗塔诺海海面" ExpressionTypeR="String" ConditionType="RegexMatch" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
             </Triggers>
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="true" Name="钓上了" Id="91eb4d32-42ea-4b42-944f-ec157feea7a8" RegularExpression="不经意间鱼饵被吃掉了……|将上钩的.*?放回到了钓场中。|上钩的鱼逃走了……">
+          <Trigger Enabled="true" Name="钓上了" Id="e76b9926-a8ff-4d07-9ccb-ce655919c998" RegularExpression="不经意间鱼饵被吃掉了……|将上钩的.*?放回到了钓场中。|上钩的鱼逃走了……|(?&lt;name&gt;[^:]*?)成功钓上了.*">
             <Actions>
               <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 抛竿" NamedCallbackName="DoTextCommand" NamedCallbackParam="/ac 抛竿" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Name="挂上鱼饵" Id="60f141a2-4862-419b-bbb5-68494ecf2e81" RegularExpression="^.{15}00:0039:将.{1}(?&lt;bait&gt;.+?)挂到了钓钩上。">
+          <Trigger Enabled="true" Name="挂上鱼饵" Id="2fc65d4a-a881-4f14-84d6-f3e696d15285" RegularExpression="^.{15}00:0039:将.{1}(?&lt;bait&gt;.+?)挂到了钓钩上。">
             <Actions>
               <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="player_bait" VariableExpression="${bait}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
-        </Triggers>
-      </Folder>
-      <Folder Id="97920cb7-f088-4ab6-904f-a1e5c2be3b6e" Name="天气" Enabled="true">
-        <Folders />
-        <Triggers>
-          <Trigger Enabled="true" Name="数据收集" Id="7d20dffd-c9c5-4750-b87d-0e8498fff0be" RegularExpression="" Description="0101 碧空&#xD;&#xA;0191 幻海&#xD;&#xA;0103 阴云&#xD;&#xA;0108 暴雨&#xD;&#xA;010F 小雪&#xD;&#xA;0102 晴朗">
-            <Actions />
-            <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
