@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="8ff41de5-c7bd-4f08-9af7-f7bfd1f12920" Name="标点" Enabled="true">
+    <Folders />
+    <Triggers>
+      <Trigger Enabled="true" Name="获取数据" Id="251b2fa0-d78d-4ace-a0e9-4fb6b6da2854" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
+        <Actions>
+          <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://cdn.jsdelivr.net/gh/tssailzz8/tssailzz8-ff14-trigger@master/标点/区域.csv" DiskFileOpVar="区域" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiskFile">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://cdn.jsdelivr.net/gh/tssailzz8/tssailzz8-ff14-trigger@master/标点/标点.csv" DiskFileOpVar="标点" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiskFile">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="自动标点" Id="ddd02b20-b9dc-4f22-9223-e0fefa47e7f6" RegularExpression="^.{15}21:8003(?&lt;id&gt;[0-9A-F]{4}):(80000004|40000006|40000001):" PeriodRefire="Deny" RefirePeriodExpression="5000">
+        <Actions>
+          <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://cdn.jsdelivr.net/gh/tssailzz8/tssailzz8-ff14-trigger@master/标点/区域.csv" DiskFileOpVar="区域" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiskFile">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://cdn.jsdelivr.net/gh/tssailzz8/tssailzz8-ff14-trigger@master/标点/标点.csv" DiskFileOpVar="标点" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiskFile">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" NamedCallbackName="DoWaymarks" NamedCallbackParam="${tvarrl:标点[${tvarrl:区域[${numeric:hex2dec(${id})}][1]}][1]}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
