@@ -1,0 +1,436 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="18b7cac0-a217-4258-a572-1b807cc9cf84" Name="身位" Enabled="true">
+    <Folders>
+      <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="536870912" Id="b2253c62-82c4-4fbb-98c3-10723528bab3" Name="忍者" Enabled="true">
+        <Folders>
+          <Folder Id="6e5c48df-03f1-4d7d-9291-3a2ea324e949" Name="结错印" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="兔子" Id="c158103a-9a5a-4fb2-bf9f-bfc65a5dc7b9" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):8E0:" Scheduling="FromRefirePeriod" RefirePeriodExpression="20000">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}结了个兔子" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="结印了" Id="a7d2ed14-5774-4190-b762-d80ee6403e9d" RegularExpression="\A26\|[^\|]*\|(?&lt;statusID&gt;1f0)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;name&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="111" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="6000">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${_incombat}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="忍术" Id="599b99e1-3b75-41db-8c74-41379d3d6c8d" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):(8DB|8DF|406C|406B|8DE):">
+                <Actions>
+                  <Action OrderNumber="1" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="CancelTrigger" TriggerId="a7d2ed14-5774-4190-b762-d80ee6403e9d" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="旋风刃" Id="11cf3f64-be38-420c-a363-77cc8f56a2e5" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):8CF:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Edge" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}旋风刃打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Edge}" ExpressionTypeL="String" ExpressionR="79" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:Edge}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="强甲破点突" Id="f2f15861-8f62-4beb-b626-be9fc32fa484" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):DEB:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="78" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="背刺" Id="82edcadd-19e3-4eca-862f-e7caac3aae3c" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):8D2:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Attack" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Attack}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}背刺打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Attack}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="524288" Id="28f7e9ba-d1c6-4623-a367-9cd8a093aeee" Name="武僧" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="崩拳" Id="ef26f8b0-d61b-4e04-9359-0d51a842a471" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):38:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="error" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" JsonCacheRequest="True" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}崩拳打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:error}" ExpressionTypeL="String" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:error}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="双掌打" Id="b9800fd6-14ba-40c2-a0f7-07f70430ffa7" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):3D:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="error" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" JsonCacheRequest="True" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}双掌打打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:error}" ExpressionTypeL="String" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:error}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="正拳" Id="2c266a03-287e-4dc6-a0aa-46e9f3956843" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):36:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="error" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}正拳打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:error}" ExpressionTypeL="String" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:error}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="双龙脚" Id="7b7648a2-4eaf-4365-a883-5670f1820f25" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):4A:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="error" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}双龙脚打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:error}" ExpressionTypeL="String" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:error}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="破碎拳" Id="f3784a9c-6afc-4434-87c0-191cf3fff194" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):42:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="error" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}破碎拳打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:error}" ExpressionTypeL="String" ExpressionR="27" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:error}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="cf4a107f-6620-4629-a14d-3c840bb7d8bd" Name="龙骑(暂差数据)" Enabled="false">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="false" Name="龙牙龙爪" Id="375e4132-3cd0-4abc-850e-395d9bc39a3e" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):76:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="error" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}樱花怒放打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:error}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:error}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="false" Name="樱花怒放" Id="aad83e17-8354-44aa-a90f-2185508e3bf7" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):DE2:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="error" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}樱花怒放打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:error}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:error}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="false" Name="龙尾大回旋" Id="5fbc0dda-e871-491e-a59a-2326d32a4b5c" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):DE4:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="error" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}龙尾大回旋打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:error}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="${var:error}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="2147483648" Id="e0fa89de-f80e-4084-b920-21126989bccb" Name="黑骑" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="吸收斩" Id="3e30940c-3452-45ab-9cf2-2616ffc01629" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):E27:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="66" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="噬魂斩" Id="bfbc6390-e067-4de1-b821-7dde4921e30a" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):E30:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="75" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="262144" Id="d56e7dad-82af-4423-a47b-12052fca67f1" Name="骑士" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="暴乱剑" Id="d6d9f36a-3908-4567-9f45-9f61f3d4a0dc" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):0F:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="66" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="沥血剑" Id="5c509d18-ffca-4328-bf56-e326150beb50" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):DD2:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="74" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="王权剑" Id="34a92738-dea6-496b-ac5a-3204764c2295" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):DD3:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="81" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="1048576" Id="d512cce0-b7c4-4bbc-9765-f745e655f343" Name="战士" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="凶残裂" Id="d8238f5e-ad4a-4488-aa5e-d0a0339257e6" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):25:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="66" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="暴风斩" Id="9d543c85-385b-4912-9207-1c27c89e411f" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):2A:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="73" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="暴风碎" Id="bd768935-0015-4097-be99-aba35f5a60c2" RegularExpression="^.{14} 15:.{8}:(?&lt;CasterName&gt;[^:]+?):2D:(?:[^:]*:){3}(?&lt;shenwei&gt;\w+?):">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="${numeric:hex2dec(${func:substring(0,2):${gauge}})}" VariableOp="SetNumeric" VariableName="Crush" VariableExpression="hex2dec(${func:substring(0,2):${func:padleft(48,8):${shenwei}}})" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="${var:Crush}" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/${func:tolower:${var:发送频道}} ${CasterName}强甲破点突打错身位了" UseTTSTextExpression="灵护" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:Crush}" ExpressionTypeL="String" ExpressionR="73" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${CasterName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="钉宫理惠" Id="bf8d4dea-2b17-4860-a8d5-2eba7b2ca08f" RegularExpression="" RefirePeriodExpression="6000">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" PlaySoundFileExpression="https://gitee.com/soumasumire/FFXIV_Auxiliary_Tools/raw/master/%E5%85%B6%E4%BB%96/%E9%92%89%E5%AE%AB%E7%90%86%E6%83%A0%E8%AF%AD%E9%9F%B3%E5%8C%85/${numeric:random(1,60)}.wav" PlaySoundVolumeExpression="25" UseTTSVolumeExpression="" UseTTSRateExpression="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="PlaySound" Description="双击此处进入设置" DescriptionOverride="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
