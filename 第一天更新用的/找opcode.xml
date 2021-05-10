@@ -3,18 +3,7 @@
   <ExportedFolder Id="3a49c38d-77ba-4786-82df-baa3fe29e3bf" Name="找opcode" Enabled="true">
     <Folders />
     <Triggers>
-      <Trigger Enabled="false" Source="OriginalLog" Name="Ability1" Id="4f883a28-205e-470d-8e68-85eb0a804980" RegularExpression="^252\|(?&lt;timestamp&gt;[^|]*)\|0000009C\|(?&lt;sourceId&gt;[^|]*)\|[0-9A-F]{8}\|[0-9A-F]{8}\|(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}\|(?:[^|]*\|){3}(?&lt;targetId&gt;[^|]*)\|[0-9A-F]{8}\|[0-9A-F]{4}(?&lt;actionID&gt;[0-9A-F]{4})\|">
-        <Actions>
-          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="Ability1" VariableExpression="${opcode}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Description="请在人少的地方满血满蓝使用白魔对木人使用闪耀" DescriptionOverride="True">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="true" Grouping="And">
-          <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceId}].name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-          <ConditionSingle Enabled="true" ExpressionL="${actionID}" ExpressionTypeL="String" ExpressionR="4095" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-        </Condition>
-      </Trigger>
-      <Trigger Enabled="false" Source="OriginalLog" Name="ActorCast" Id="c83e61e0-20d2-4322-b0a6-5e66811674ef" RegularExpression="^252\|(?&lt;timestamp&gt;[^|]*)\|00000040\|(?&lt;sourceId&gt;[^|]*)\|[0-9A-F]{8}\|[0-9A-F]{8}\|(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}\|(?:[^|]*\|){3}[0-9A-F]{4}(?&lt;actionID&gt;[0-9A-F]{4})\|">
+      <Trigger Enabled="false" Source="OriginalLog" Name="ActorCast" Id="c83e61e0-20d2-4322-b0a6-5e66811674ef" RegularExpression="^Trlog:00000040:(?&lt;sourceId&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{8}:(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}(?:[^:]*:){5}[0-9A-F]{4}409D:">
         <Actions>
           <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="ActorCast" VariableExpression="${opcode}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Description="请在人少的地方使用学者对木人使用死炎法" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
@@ -22,10 +11,10 @@
         </Actions>
         <Condition Enabled="true" Grouping="And">
           <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceId}].name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-          <ConditionSingle Enabled="true" ExpressionL="${actionID}" ExpressionTypeL="String" ExpressionR="409d" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="false" ExpressionL="${actionID}" ExpressionTypeL="String" ExpressionR="409d" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
         </Condition>
       </Trigger>
-      <Trigger Enabled="false" Source="OriginalLog" Name="ActorControl" Id="96e483d5-b165-44a6-8bbc-188350ecb164" RegularExpression="^252\|(?&lt;timestamp&gt;[^|]*)\|00000038\|[0-9A-F]{8}\|(?&lt;sourceId&gt;[0-9A-F]{8})\|[0-9A-F]{8}\|(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}\|(?:[^|]*\|){4}0000001C\|00000000\|00000000\|00000000\|0000[0-9A-F]{4}\|\|.{32}$" PeriodRefire="Deny" RefirePeriodExpression="10000">
+      <Trigger Enabled="false" Source="OriginalLog" Name="ActorControl" Id="96e483d5-b165-44a6-8bbc-188350ecb164" RegularExpression="^Trlog:00000038:(?&lt;sourceId&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{8}:(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}(?:[^:]*:){5}[0-9A-F]{4}001C:00000000:00000000:00000000:00000000:$" PeriodRefire="Deny" RefirePeriodExpression="10000">
         <Actions>
           <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="ActorControl" VariableExpression="${opcode}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Description="请在人少的地方切换成学者" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
@@ -35,25 +24,14 @@
           <ConditionSingle Enabled="true" ExpressionL="${sourceId}" ExpressionTypeL="String" ExpressionR="${_ffxiventity[${_ffxivplayer}].id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
         </Condition>
       </Trigger>
-      <Trigger Enabled="false" Source="OriginalLog" Name="Ability8" Id="b41ed89f-d693-45d4-9b0b-82d148fb6e8b" RegularExpression="^252\|(?&lt;timestamp&gt;[^|]*)\|0000029C\|(?&lt;sourceId&gt;[^|]*)\|[0-9A-F]{8}\|[0-9A-F]{8}\|(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}\|(?:[^|]*\|){3}(?&lt;targetId&gt;[^|]*)\|[0-9A-F]{8}\|[0-9A-F]{4}(?&lt;actionID&gt;[0-9A-F]{4})\|(?:[^|]*\|){145}41000000\|">
+      <Trigger Enabled="false" Source="OriginalLog" Name="Ability8" Id="b41ed89f-d693-45d4-9b0b-82d148fb6e8b" RegularExpression="^Trlog:0000029C:(?&lt;sourceId&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{8}:(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}(?:[^:]*:){4}(?&lt;targetId&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{4}008B(?:[^:]*:){146}41000000:">
         <Actions>
           <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="Ability8" VariableExpression="${opcode}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Description="请在人少的地方满血满蓝使用白魔对空炸神圣" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
-        <Condition Enabled="true" Grouping="And">
+        <Condition Enabled="true" Grouping="Or">
           <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceId}].name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-          <ConditionSingle Enabled="true" ExpressionL="${actionID}" ExpressionTypeL="String" ExpressionR="008B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-        </Condition>
-      </Trigger>
-      <Trigger Enabled="false" Source="OriginalLog" Name="StatusEffectList" Id="83437cc5-649f-436c-aeb9-04f179b9ebf2" RegularExpression="^252\|(?&lt;timestamp&gt;[^|]*)\|000001A0\|[0-9A-F]{8}\|(?&lt;sourceId&gt;[0-9A-F]{8})\|[0-9A-F]{8}\|(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}\|(?:[^|]*\|){8}0000074F|41(E|D|C)[0-9A-F]{5}\|[0-9A-F]{8}\|00000000\|" PeriodRefire="Deny" RefirePeriodExpression="10000">
-        <Actions>
-          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="StatusEffectList" VariableExpression="${opcode}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Description="请在人少的地方对使用白魔对木人使用天辉" DescriptionOverride="True">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-        </Actions>
-        <Condition Enabled="true" Grouping="And">
-          <ConditionSingle Enabled="true" ExpressionL="${sourceId}" ExpressionTypeL="String" ExpressionR="${_ffxiventity[${_ffxivplayer}].id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
         </Condition>
       </Trigger>
       <Trigger Enabled="false" Source="OriginalLog" Name="天气" Id="c13f46db-71d0-4839-87e4-f0b696eff333" RegularExpression="Trlog:00000028:(?&lt;sourceId&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{8}:(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}(?:[^:]*:){4}[0-9A-F]{6}66">
@@ -66,7 +44,7 @@
           <ConditionSingle Enabled="true" ExpressionL="${sourceId}" ExpressionTypeL="String" ExpressionR="${_ffxiventity[${_ffxivplayer}].id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
         </Condition>
       </Trigger>
-      <Trigger Enabled="true" Source="OriginalLog" Name="mapeffect" Id="367a0ce9-482a-4a0d-b0e5-04c71fe9894c" RegularExpression="Trlog:00000030:(?&lt;mainID&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{8}:(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}:[0-9A-F]{8}:[0-9A-F]{8}:[0-9A-F]{8}:8004001B:00040004:[0-9A-F]{8}:00000000:">
+      <Trigger Enabled="false" Source="OriginalLog" Name="mapeffect" Id="71b9ba4f-cf0f-4770-ab50-491120bf07a9" RegularExpression="Trlog:00000030:(?&lt;mainID&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{8}:(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}:[0-9A-F]{8}:[0-9A-F]{8}:[0-9A-F]{8}:8004001B:00040004:[0-9A-F]{8}:00000000:">
         <Actions>
           <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="mapeffect" VariableExpression="${opcode}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Description="博兹雅攻城战开始" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
@@ -74,6 +52,26 @@
         </Actions>
         <Condition Enabled="true" Grouping="And">
           <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${mainID}].name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="false" Source="OriginalLog" Name="StatusEffectList" Id="f831bb4b-c868-42c4-b162-206983154920" RegularExpression="^Trlog:000001A0:[0-9A-F]{8}:(?&lt;sourceId&gt;[0-9A-F]{8}):[0-9A-F]{8}:(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}:[0-9A-F]{8}(?:[^:]*:){8}0000009E:" PeriodRefire="Deny" RefirePeriodExpression="10000">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="StatusEffectList" VariableExpression="${opcode}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Description="请在人少的地方对使用白魔对自己使用再生" DescriptionOverride="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${sourceId}" ExpressionTypeL="String" ExpressionR="${_ffxiventity[${_ffxivplayer}].id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="false" Source="OriginalLog" Name="Ability1" Id="e986d98b-2915-482f-9b7a-fb3b2f220237" RegularExpression="^Trlog:0000009C:(?&lt;sourceId&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{8}:(?&lt;opcode&gt;[0-9A-F]{4})[0-9A-F]{4}(?:[^:]*:){4}(?&lt;targetId&gt;[0-9A-F]{8}):[0-9A-F]{8}:[0-9A-F]{4}4095:">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="Ability1" VariableExpression="${opcode}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Description="请在人少的地方满血满蓝使用白魔对木人使用闪耀" DescriptionOverride="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceId}].name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
         </Condition>
       </Trigger>
     </Triggers>
