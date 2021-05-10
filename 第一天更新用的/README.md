@@ -1,6 +1,6 @@
 # 介绍
  *仅第一天解析插件更新前来使用产生14，15,1a行日志的触发器
 
- *需配合尼尼pro版触发器
+ *需配合尼尼pro版触发器[地址](https://github.com/pipirapira/triggernometry-pro/releases)
 
  *导入既能使用
