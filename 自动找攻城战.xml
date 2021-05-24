@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="5960185a-8cda-4e66-945f-20b8ed94c5bb" Name="自动找ce" Enabled="true">
+    <Folders />
+    <Triggers>
+      <Trigger Enabled="true" Source="OriginalLog" Name="找ce" Id="3aa092f6-0691-4907-a4f7-ec104fdf8163" RegularExpression="^Trlog:00000030:[0-9A-F]{8}:(?&lt;sourceId&gt;[0-9A-F]{8}):[0-9A-F]{8}:(?&lt;opcode&gt;0120)[0-9A-F]{4}(?:[^:]*:){5}0000(?&lt;time&gt;[^:]*):.{6}00:" PeriodRefire="Deny" RefirePeriodExpression="1000">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="String" ExpressionR="0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="CancelAllTrigger" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="String" ExpressionR="0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="5960185a-8cda-4e66-945f-20b8ed94c5bb" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="DisableTrigger" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Folder">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="String" ExpressionR="0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找到了" UseTTSExclusive="False" VariableOp="SetNumeric" VariableName="byz" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="String" ExpressionR="0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="85" UseTTSTextExpression="找到了" VariableOp="SetNumeric" VariableName="byz" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${time}" ExpressionTypeL="String" ExpressionR="0000" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="退本" Id="d5bfa5ea-40a5-4017-ba34-b2daec568a60" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="85" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="100">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="100">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="100">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="到本里了" Id="9ac9e9f2-12bb-412b-bbef-b74abaa98a55" RegularExpression="^.{15}00:0839:已同步到特殊的等级。">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="d5bfa5ea-40a5-4017-ba34-b2daec568a60" TriggerForce="regexp,conditions" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger" ExecutionDelayExpression="50">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:byz}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="100" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="回去" Id="16d92106-fbf3-48bc-bee8-65b2dfdc5460" RegularExpression="^.{15}27:" PeriodRefire="Deny" RefirePeriodExpression="20000" MutexToCapture="byz">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="5000">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivzoneid}" ExpressionTypeL="Numeric" ExpressionR="915" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+        </Condition>
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="进本" Id="6ed27a14-edd4-4510-b6f6-9bf20c28dba5" RegularExpression="^.{15}00:0039:成功发送了参加申请">
+        <Actions>
+          <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="CancelTrigger" TriggerId="16d92106-fbf3-48bc-bee8-65b2dfdc5460" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="100" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="sendkey" NamedCallbackParam="70" UseTTSTextExpression="找到了" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
