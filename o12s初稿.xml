@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="cc616856-22a8-42f1-8026-82ff5ab4afb1" Name="o12s" Enabled="true">
+    <Folders>
+      <Folder Id="6c23b960-73f7-4670-8672-bbea607ea599" Name="本体" Enabled="true">
+        <Folders>
+          <Folder Id="eceff864-ad4c-4560-b2af-1b0b1a36c5a9" Name="补丁" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Sequential="True" Name="优先级排序" Id="d10ffe43-8c3b-4e11-9c7b-150a59afc053" RegularExpression="_PrioritySort:(?&lt;pri&gt;[^:]+?):(?&lt;inputlist&gt;[^:]+?):(?&lt;outputlist&gt;[^:]+?):">
+                <Actions>
+                  <Action OrderNumber="1" ListVariableExpressionType="Numeric" ListVariableName="inList" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="inList" ListVariableExpression="${lvar:priority.indexof(${lvar:queue[1]})}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="inList" ListVariableExpression="${lvar:priority.indexof(${lvar:queue[2]})}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="inList" ListVariableExpression="${lvar:priority.indexof(${lvar:queue[3]})}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="inList" ListVariableExpression="${lvar:priority.indexof(${lvar:queue[4]})}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" ListVariableOp="SortNumericAsc" ListVariableExpressionType="Numeric" ListVariableName="inList" ListVariableExpression="${lvar:priority.indexof(${lvar:${list}[8]})}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" ListVariableExpressionType="Numeric" ListVariableName="outList" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="outList" ListVariableExpression="${lvar:priority[${lvar:inList[1]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="outList" ListVariableExpression="${lvar:priority[${lvar:inList[2]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="10" ListVariableOp="Push" ListVariableName="outList" ListVariableExpression="${lvar:priority[${lvar:inList[3]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="11" ListVariableOp="Push" ListVariableName="outList" ListVariableExpression="${lvar:priority[${lvar:inList[4]}]}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="30">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Sequential="True" IsReadme="True" Name="设置列表" Id="f9ad19db-9fd7-4314-bbc5-793b815cd08d" RegularExpression="Set:priority:(?&lt;p1&gt;[^:]+?):(?&lt;p2&gt;[^:]+?):(?&lt;p3&gt;[^:]+?):(?&lt;p4&gt;[^:]+?):(?&lt;p5&gt;[^:]+?):(?&lt;p6&gt;[^:]+?):(?&lt;p7&gt;[^:]+?):(?&lt;p8&gt;[^:]+?):" Description="自己设置优先级,例如如果自己是青奶输入&#xD;&#xA;/e _Set:priority:&lt;3&gt;:&lt;2&gt;:&lt;1&gt;:&lt;4&gt;:&lt;5&gt;:&lt;6&gt;:&lt;7&gt;:&lt;8&gt;:">
+                <Actions>
+                  <Action OrderNumber="1" ListVariableName="priority" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="priority" ListVariableExpression="${func:trimname:${p1}} " TextAuraFontSize="9" TextAuraFontName="宋体" TriggerText="_PureNameList:party:${p8}:" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="priority" ListVariableExpression="${func:trimname:${p2}} " TextAuraFontSize="9" TextAuraFontName="宋体" TriggerText="_PureNameList:party:${p8}:" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="priority" ListVariableExpression="${func:trimname:${p3}} " TextAuraFontSize="9" TextAuraFontName="宋体" TriggerText="_PureNameList:party:${p8}:" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="priority" ListVariableExpression="${func:trimname:${p4}} " TextAuraFontSize="9" TextAuraFontName="宋体" TriggerText="_PureNameList:party:${p8}:" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="priority" ListVariableExpression="${func:trimname:${p5}} " TextAuraFontSize="9" TextAuraFontName="宋体" TriggerText="_PureNameList:party:${p8}:" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="priority" ListVariableExpression="${func:trimname:${p6}} " TextAuraFontSize="9" TextAuraFontName="宋体" TriggerText="_PureNameList:party:${p8}:" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="priority" ListVariableExpression="${func:trimname:${p7}} " TextAuraFontSize="9" TextAuraFontName="宋体" TriggerText="_PureNameList:party:${p8}:" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="priority" ListVariableExpression="${func:trimname:${p8}} " TextAuraFontSize="9" TextAuraFontName="宋体" TriggerText="_PureNameList:party:${p8}:" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="buff" Id="aa3ce585-3440-4670-a761-ed1f089868ea" RegularExpression="^26\|[^\|]*\|688\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;name&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="queue" ListVariableExpression="${Name}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="d10ffe43-8c3b-4e11-9c7b-150a59afc053" TriggerForce="regexp,conditions" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger" ExecutionDelayExpression="500">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:queue.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" LogLevel="-1" NamedCallbackName="DoTextCommand" NamedCallbackParam="/marking attack1 &lt;${lvar:party.indexof(${lvar:queue[1]})}&gt;" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:outList.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="4dae3465-6844-4477-9026-80af5aff6e2d" Name="hw" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="你好，世界" Id="787e311c-30de-4dd2-a088-ffd9d67882e6" RegularExpression="^.{14} 14:336E:">
+                <Actions>
+                  <Action OrderNumber="1" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="EnableTrigger" TriggerId="aa871320-63aa-49c9-91c5-b79e750b79bc" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="2" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="EnableTrigger" TriggerId="b59d517c-e163-459a-9807-a62102a8f9a4" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="3" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="EnableTrigger" TriggerId="b31fbf2b-8a18-4339-a5f1-08a8eb589031" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="4" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="b31fbf2b-8a18-4339-a5f1-08a8eb589031" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger" ExecutionDelayExpression="10000">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="你好，世界BUFF2" Id="aa871320-63aa-49c9-91c5-b79e750b79bc" RegularExpression="\A26\|[^\|]*\|(?&lt;statusID&gt;(680|682|686|687))\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;name&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="没有点名，左右" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="700" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="去正点上" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="3" UseTTSTextExpression="去C点" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="你好，世界BUFF1" Id="b59d517c-e163-459a-9807-a62102a8f9a4" RegularExpression="\A26\|[^\|]*\|(?&lt;statusID&gt;(680|682|686|687))\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;name&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="aa871320-63aa-49c9-91c5-b79e750b79bc" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去A等待炸圈" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" Description="红">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="682" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" PlaySpeechMyself="True" UseTTSTextExpression="去中间然后去偏D侧" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" Description="毒">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" PlaySpeechMyself="True" UseTTSTextExpression="去C左超硬化" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" Description="短分">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="680" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去C右超硬化" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" Description="长分">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="680" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去靠A点吃圈" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" Description="蓝DNA">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="686" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="7" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去C点挂机" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="8000">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="682" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="8" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去各个点上炸圈" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="686" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="9" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去C点" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="7000">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="686" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="10" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去D" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="680" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="11" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去B" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="680" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="12" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去AD之间" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" Description="毒">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="13" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去C点" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="10000" Description="毒">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="14" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="去C有毒自己放毒" UseTTSExclusive="False" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${statusID}" ExpressionTypeL="String" ExpressionR="686" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="无buff标记" Id="b31fbf2b-8a18-4339-a5f1-08a8eb589031" RegularExpression="\A26\|[^\|]*\|(?&lt;statusID&gt;(680|682|686|687))\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;name&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="buff" ListVariableExpression="${name}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="buff2" ListVariableExpression="${lvar:priority[1]}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="buff" ExpressionTypeL="String" ExpressionR="${lvar:priority[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="buff2" ListVariableExpression="${lvar:priority[2]}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="buff" ExpressionTypeL="String" ExpressionR="${lvar:priority[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="buff2" ListVariableExpression="${lvar:priority[3]}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="buff" ExpressionTypeL="String" ExpressionR="${lvar:priority[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="buff2" ListVariableExpression="${lvar:priority[4]}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="buff" ExpressionTypeL="String" ExpressionR="${lvar:priority[4]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="buff2" ListVariableExpression="${lvar:priority[5]}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="buff" ExpressionTypeL="String" ExpressionR="${lvar:priority[5]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="buff2" ListVariableExpression="${lvar:priority[6]}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="buff" ExpressionTypeL="String" ExpressionR="${lvar:priority[6]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="buff2" ListVariableExpression="${lvar:priority[7]}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="buff" ExpressionTypeL="String" ExpressionR="${lvar:priority[7]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="buff2" ListVariableExpression="${lvar:priority[8]}" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="buff" ExpressionTypeL="String" ExpressionR="${lvar:priority[8]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="10" LogLevel="-1" NamedCallbackName="DoTextCommand" NamedCallbackParam="/marking attack1 &lt;${lvar:party.indexof(${lvar:queue[1]})}&gt;" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:buff2.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:buff2[1]}].x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${lvar:buff2[2]}].x}" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="11" LogLevel="-1" NamedCallbackName="DoTextCommand" NamedCallbackParam="/marking attack1 &lt;${lvar:party.indexof(${lvar:queue[1]})}&gt;" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:buff2.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:buff2[1]}].x}" ExpressionTypeL="Numeric" ExpressionR="${_ffxiventity[${lvar:buff2[2]}].x}" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="毒buff" Id="ba8c32ef-41bd-4f8b-bec7-fbaadb04a99a" RegularExpression="\A26\|[^\|]*\|(?&lt;statusID&gt;(687))\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;name&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="远离人群炸毒" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="${duration}*1000-3000">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Sequential="True" Name="超硬化" Id="791cce9a-357e-458e-9603-b286efc2e92a" RegularExpression="^.{14} 00:(?:00b9|0139):距离战斗开始还有(?&lt;time&gt;..?)秒！" PeriodRefire="Deny" RefirePeriodExpression="60000">
+            <Actions>
+              <Action OrderNumber="1" LogLevel="-1" NamedCallbackName="DoTextCommand" NamedCallbackParam="/l1 超硬化&lt;se4.&gt;" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="11100+${time}*1000">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:benti}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" LogLevel="-1" NamedCallbackName="DoTextCommand" NamedCallbackParam="/l1 超硬化&lt;se4.&gt;" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="215000">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:benti}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" LogLevel="-1" NamedCallbackName="DoTextCommand" NamedCallbackParam="/l1 超硬化&lt;se4.&gt;" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="262000">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:benti}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="本体" Id="666d8523-1eed-40fa-a93c-af84699e3c56" RegularExpression="^.{14} 15:.{8}:[^:]+?:3380:" PeriodRefire="Deny" RefirePeriodExpression="3000">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="benti" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="手臂归档" Id="e212fcf8-6518-4c8f-8f68-5a50226d1daf" RegularExpression="^.{14} 15:.{8}:[^:]+?:3358:" PeriodRefire="Deny" RefirePeriodExpression="3000">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="hw2" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers />
+  </ExportedFolder>
+</TriggernometryExport>

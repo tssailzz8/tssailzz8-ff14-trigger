@@ -209,9 +209,11 @@
             <Actions>
               <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="9143d964-e398-4b60-a123-e2ce67a32523" TriggerForce="regexp" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/ac 抛竿" NamedCallbackName="DoTextCommand" NamedCallbackParam="/e ${var:fishery1}→${var:fishery2}→${var:fishery3}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="1500">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
