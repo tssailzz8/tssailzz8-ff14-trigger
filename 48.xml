@@ -149,11 +149,12 @@
                     <Actions>
                       <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="b2_samll_count" VariableExpression="${var:b2_samll_count}+1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" ExecutionDelayExpression="1000">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="2" LogLevel="-1" VariableOp="SetString" VariableName="b2_samll_${var:b2_samll_count}" VariableExpression="${id}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" ExecutionDelayExpression="200">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="DoTextCommand" NamedCallbackParam="/e 小火球id ${var:b2_samll_${var:b2_samll_count}}" TextAuraFontSize="26.25" TextAuraForeground="#FF8000" TextAuraName="b3_tempreture" TextAuraExpression="当前体温：${var:当前温度}" TextAuraXIniExpression="1633" TextAuraYIniExpression="584" TextAuraWIniExpression="182" TextAuraHIniExpression="128" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -171,64 +172,64 @@
                       </Action>
                       <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="b2_safe" ListVariableExpression="B点" LogLevel="-1" UseTTSTextExpression="2B2B" UseTTSRateExpression="2" VariableName="b2_safe_b" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 271, -162)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 271, -162)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 271, -162)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 271, -162)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 271, -162)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 271, -162)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 271, -162)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 271, -162)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                         </Condition>
                         <Conditions />
                       </Action>
                       <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="b2_safe" ListVariableExpression="C点" LogLevel="-1" UseTTSTextExpression="3C3C" UseTTSRateExpression="2" VariableName="b2_safe_c" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 244, -135)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 244, -135)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 244, -135)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 244, -135)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 244, -135)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 244, -135)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 244, -135)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 244, -135)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                         </Condition>
                         <Conditions />
                       </Action>
                       <Action OrderNumber="4" ListVariableOp="Insert" ListVariableName="b2_safe" ListVariableExpression="D点" LogLevel="-1" UseTTSTextExpression="4D4D" UseTTSRateExpression="2" VariableName="b2_safe_d" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 219, -162)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 219, -162)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 219, -162)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 219, -162)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 219, -162)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 219, -162)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 219, -162)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 219, -162)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                         </Condition>
                         <Conditions />
                       </Action>
                       <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="b2_safe" ListVariableExpression="1点" LogLevel="-1" UseTTSTextExpression="1号1号" UseTTSRateExpression="2" VariableName="b2_safe_1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 257.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 257.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 257.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 257.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 257.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 257.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 257.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 257.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                         </Condition>
                         <Conditions />
                       </Action>
                       <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="b2_safe" ListVariableExpression="2点" LogLevel="-1" UseTTSTextExpression="2号2号" UseTTSRateExpression="2" VariableName="b2_safe_2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 257.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 257.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 257.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 257.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 257.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 257.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 257.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 257.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                         </Condition>
                         <Conditions />
                       </Action>
                       <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="b2_safe" ListVariableExpression="3点" LogLevel="-1" UseTTSTextExpression="3号3号" UseTTSRateExpression="2" VariableName="b2_safe_3" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 231.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 231.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 231.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 231.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 231.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 231.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 231.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 231.5, -148.5)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                         </Condition>
                         <Conditions />
                       </Action>
                       <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="b2_safe" ListVariableExpression="4点" LogLevel="-1" UseTTSTextExpression="4号4号" UseTTSRateExpression="2" VariableName="b2_safe_4" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 231.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 231.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 231.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 231.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_1}].x}, ${_ffxiventity[${var:b2_avatarid_1}].y}, 231.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_2}].x}, ${_ffxiventity[${var:b2_samll_2}].y}, 231.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_avatarid_2}].x}, ${_ffxiventity[${var:b2_avatarid_2}].y}, 231.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${var:b2_samll_1}].x}, ${_ffxiventity[${var:b2_samll_1}].y}, 231.5, -173.5)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                         </Condition>
                         <Conditions />
                       </Action>
@@ -281,15 +282,15 @@
                     <Actions>
                       <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="b2_avatarid_count" VariableExpression="${var:b2_avatarid_count}+1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" ExecutionDelayExpression="1000">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="2" LogLevel="-1" VariableOp="SetString" VariableName="b2_avatarid_${var:b2_avatarid_count}" VariableExpression="${id}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" ExecutionDelayExpression="200">
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="DoTextCommand" NamedCallbackParam="/e 大火球id ${var:b2_avatarid_${var:b2_avatarid_count}}" TextAuraFontSize="26.25" TextAuraForeground="#FF8000" TextAuraName="b3_tempreture" TextAuraExpression="当前体温：${var:当前温度}" TextAuraXIniExpression="1633" TextAuraYIniExpression="584" TextAuraWIniExpression="182" TextAuraHIniExpression="128" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="1000">
+                        <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -717,165 +718,137 @@
             <Actions>
               <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="b1_blade_count" VariableExpression="${var:b1_blade_count}+1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="b1_blade_tts" ListVariableExpression="左左左" UseTTSTextExpression="左左左" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="外" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" ExecutionDelayExpression="100">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, 0, 264.02)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="3" ListVariableOp="Insert" ListVariableName="b1_blade_tts" ListVariableExpression="右右右" UseTTSTextExpression="右" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="外" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, 0, 264.02)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="4" ListVariableOp="Insert" ListVariableName="左左左" ListVariableExpression="左左左" UseTTSTextExpression="左左左" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="内" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, 0, 264.02)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="b1_blade_tts" ListVariableExpression="右右右" UseTTSTextExpression="右右右" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="内" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, 0, 264.02)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="6" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" Enabled="False" ActionType="LogMessage" Description="===========================================" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="b1_blade_tts" ListVariableExpression="左左左" UseTTSTextExpression="左左左" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="外" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, 14.01, 277.99)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="8" ListVariableOp="Insert" ListVariableName="左左左" ListVariableExpression="左左左" UseTTSTextExpression="左左左" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="外" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, 14.01, 277.99)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="9" ListVariableOp="Insert" ListVariableName="b1_blade_tts" ListVariableExpression="右右右" UseTTSTextExpression="右" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="内" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, 14.01, 277.99)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="10" ListVariableOp="Push" ListVariableName="b1_blade_tts" ListVariableExpression="右右右" UseTTSTextExpression="右右右" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="内" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, 14.01, 277.99)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="11" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" Enabled="False" ActionType="LogMessage" Description="===========================================" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="12" ListVariableOp="Insert" ListVariableName="左左左" ListVariableExpression="左左左" UseTTSTextExpression="左左左" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="外" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y},  0, 292)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="13" ListVariableOp="Push" ListVariableName="b1_blade_tts" ListVariableExpression="右右右" UseTTSTextExpression="右右右" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="外" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y},  0, 292)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="14" ListVariableOp="Push" ListVariableName="b1_blade_tts" ListVariableExpression="左左左" UseTTSTextExpression="左左左" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="内" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y},  0, 292)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="15" ListVariableOp="Insert" ListVariableName="b1_blade_tts" ListVariableExpression="右右右" UseTTSTextExpression="右" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="内" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y},  0, 292)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="16" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" Enabled="False" ActionType="LogMessage" Description="===========================================" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="17" ListVariableOp="Insert" ListVariableName="b1_blade_tts" ListVariableExpression="右右右" UseTTSTextExpression="右" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="外" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, -14.01, 277.99)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="18" ListVariableOp="Push" ListVariableName="b1_blade_tts" ListVariableExpression="右右右" UseTTSTextExpression="右右右" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="外" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, -14.01, 277.99)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="19" ListVariableOp="Push" ListVariableName="b1_blade_tts" ListVariableExpression="左左左" UseTTSTextExpression="左左左" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="内" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, -14.01, 277.99)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="20" ListVariableOp="Insert" ListVariableName="左左左" ListVariableExpression="左左左" UseTTSTextExpression="左左左" UseTTSRateExpression="2" VariableOp="SetString" VariableName="b1_blade_${var:b1_blade_count}" VariableExpression="内" TextAuraEffect="Bold" TextAuraFontSize="21.75" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="textMercy" TextAuraExpression="${p3}" TextAuraXIniExpression="1141" TextAuraYIniExpression="65" TextAuraWIniExpression="118" TextAuraHIniExpression="58" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="F8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="distance(${_ffxiventity[${cid}].x}, ${_ffxiventity[${cid}].y}, -14.01, 277.99)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="21" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" Enabled="False" ActionType="LogMessage" Description="===========================================" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="22" ListVariableOp="Push" ListVariableName="b1_bladerecord" ListVariableExpression="${id}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="23" LogLevel="-1" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FF8000" TextAuraName="b1_四连斩" TextAuraExpression="${var:b1_blade_1}→${var:b1_blade_2}→${var:b1_blade_3}→${var:b1_blade_4}" TextAuraXIniExpression="${var:b1_text_x}" TextAuraYIniExpression="${var:b1_text_y}" TextAuraWIniExpression="623" TextAuraHIniExpression="112" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="TextAura" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="24" LogMessageText="AT_Subtitle:${var:b1_blade_1}→${var:b1_blade_2}→${var:b1_blade_3}→${var:b1_blade_4}:20:200:-450:" LogProcess="True" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FF8000" TextAuraName="b1_四连斩" TextAuraExpression="${var:b1_blade_1}→${var:b1_blade_2}→${var:b1_blade_3}→${var:b1_blade_4}" TextAuraXIniExpression="${var:b1_text_x}" TextAuraYIniExpression="${var:b1_text_y}" TextAuraWIniExpression="623" TextAuraHIniExpression="112" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="LogMessage">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="25" ListVariableName="b1_bladerecord" ListVariableExpression="${buffid}" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="ListVariable" ExecutionDelayExpression="40000">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="26" LogLevel="-1" VariableOp="UnsetRegex" VariableName="b1_blade_" VariableExpression="${var:b1_blade_count}+1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="27" LogLevel="-1" TextAuraOp="DeactivateAura" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FF8000" TextAuraName="b1_四连斩" TextAuraExpression="${var:b1_blade_1}→${var:b1_blade_2}→${var:b1_blade_3}→${var:b1_blade_4}" TextAuraXIniExpression="1315" TextAuraYIniExpression="837" TextAuraWIniExpression="623" TextAuraHIniExpression="112" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="TextAura">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="b1_bladerecord" ExpressionTypeL="String" ExpressionR="${id}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
             </Condition>
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -1059,420 +1032,7 @@
         </Triggers>
       </Folder>
       <Folder Id="0200b9ac-ecf8-46e0-8cce-ad2e7dfe971c" Name="boss4" Enabled="true">
-        <Folders>
-          <Folder Id="2680e84a-bbbd-451f-b36f-42235b57e157" Name="电路板" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="坐标判定" Id="3545cf55-4115-48d0-8ec4-3d1ff7b8be0c" RegularExpression="] 03:4[0-9A-F]{7}:Added new combatant (?&lt;type&gt;火光箭|寒霜箭|冰川箭|烈焰箭).  Job: N/A Level: 80 Max.*?Pos: \(.*?,(?&lt;y&gt;.*?),.*?\)">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_pos1" VariableExpression="${var:${type}}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-62" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-72" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-102" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-92" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_pos2" VariableExpression="${var:${type}}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-82" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-62" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-82" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-102" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_pos3" VariableExpression="${var:${type}}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-72" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-92" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-92" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-72" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_pos4" VariableExpression="${var:${type}}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-102" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-82" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-62" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-82" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_pos5" VariableExpression="${var:${type}}" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-92" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_b_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-102" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_down}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-72" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${evar:kuji_d_up}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="String" ExpressionR="-62" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，左数第一" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="500" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos1}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="7" LogMessageText="AT_Subtitle:面向火海，左数第一:15:200:-450:" LogProcess="True" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，左数第一" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="LogMessage" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos1}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="8" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，左数第二" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos2}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="9" LogMessageText="AT_Subtitle:面向火海，左数第二:15:200:-450:" LogProcess="True" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，左数第二" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="LogMessage" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos2}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="10" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，中间安全" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos3}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="11" LogMessageText="AT_Subtitle:面向火海，中间安全:15:200:-450:" LogProcess="True" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，中间安全" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="LogMessage" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos3}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="12" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，右数第二" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos4}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="13" LogMessageText="AT_Subtitle:面向火海，右数第二:15:200:-450:" LogProcess="True" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，右数第二" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="LogMessage" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos4}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="14" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，右属第一" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos5}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="15" LogMessageText="AT_Subtitle:面向火海，右数第一:15:200:-450:" LogProcess="True" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="面向火海，右属第一" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="LogMessage" RefireRequeue="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${var:kuji_pos5}+${var:当前温度}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Name="电路板分类" Id="3b037ee4-1f12-444f-b961-e8814c2062a9" RegularExpression="^.{15}00:0000:103:.{8}:8004001F:......(?&lt;type&gt;01|10):......(?&lt;pos&gt;16|17):">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_b_up" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${pos}" ExpressionTypeL="String" ExpressionR="16" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="10" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_b_down" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${pos}" ExpressionTypeL="String" ExpressionR="16" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="01" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_d_up" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${pos}" ExpressionTypeL="String" ExpressionR="17" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="10" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetString" VariableName="kuji_d_down" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${pos}" ExpressionTypeL="String" ExpressionR="17" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="01" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" VariableOp="UnsetRegex" VariableName="kuji_" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable" ExecutionDelayExpression="60000">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="And" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Name="温度设定" Id="04fe1857-da6b-4071-99ac-7bdab1fd9a88" RegularExpression="] 14:597E:" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="烈焰箭" VariableExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="冰川箭" VariableExpression="-2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="寒霜箭" VariableExpression="-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="火光箭" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="kuji_pos1" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="kuji_pos2" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="7" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="kuji_pos3" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="8" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="kuji_pos4" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="9" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="kuji_pos5" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Name="buff调整1" Id="eee9ab17-708f-4cbf-9e3a-ce8cb669c7d1" RegularExpression="] 00:08af:(?&lt;player&gt;.*?)陷入了“(?&lt;type&gt;高温\+1|高温\+2|低温-1|低温-2|体温上升的咒印\+1|体温上升的咒印\+2|体温降低的咒印-1|体温降低的咒印-2)”效果">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="当前温度" VariableExpression="${var:当前温度}+1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="高温+1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="体温上升的咒印+1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="当前温度" VariableExpression="${var:当前温度}+2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="高温+2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="体温上升的咒印+2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="当前温度" VariableExpression="${var:当前温度}-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="低温-1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="体温降低的咒印-1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="当前温度" VariableExpression="${var:当前温度}-2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="低温-2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="体温降低的咒印-2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="26.25" TextAuraForeground="#FF8000" TextAuraName="b3_tempreture" TextAuraExpression="当前体温：${var:当前温度}" TextAuraXIniExpression="1633" TextAuraYIniExpression="584" TextAuraWIniExpression="182" TextAuraHIniExpression="128" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" Enabled="False" ActionType="TextAura" ExecutionDelayExpression="1000">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="DoTextCommand" NamedCallbackParam="/e 当前体温：${var:当前温度}" TextAuraFontSize="26.25" TextAuraForeground="#FF8000" TextAuraName="b3_tempreture" TextAuraExpression="当前体温：${var:当前温度}" TextAuraXIniExpression="1633" TextAuraYIniExpression="584" TextAuraWIniExpression="182" TextAuraHIniExpression="128" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="1000">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Name="电路板温度提示" Id="a1b049da-dc3c-4ce3-a655-083217ccfa60" RegularExpression="] 14:597F:" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找火2" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS" ExecutionDelayExpression="2500">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:当前温度}" ExpressionTypeL="Numeric" ExpressionR="-2" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找火1" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:当前温度}" ExpressionTypeL="Numeric" ExpressionR="-1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找冰2" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:当前温度}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找冰1" UseTTSRateExpression="3" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:当前温度}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="找空白" UseTTSRateExpression="2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:当前温度}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Name="死亡重置" Id="9ef724ef-42ec-4676-9a86-2a6b3713cf74" RegularExpression="] 19:(?&lt;player&gt;.*?) was defeated" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableName="当前温度" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraOp="DeactivateAura" TextAuraFontSize="26.25" TextAuraForeground="#FF8000" TextAuraName="b3_tempreture" TextAuraExpression="当前体温：${var:当前温度}" TextAuraXIniExpression="1633" TextAuraYIniExpression="584" TextAuraWIniExpression="182" TextAuraHIniExpression="128" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" Enabled="False" ActionType="TextAura">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Name="温度重置" Id="3f2d99eb-b131-423a-b8c7-5254bddab876" RegularExpression="] 00:08b1:(?&lt;player&gt;.*?)的“体温变化”状态效果消失了" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableName="当前温度" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" TextAuraOp="DeactivateAura" TextAuraFontSize="26.25" TextAuraForeground="#FF8000" TextAuraName="b3_tempreture" TextAuraExpression="当前体温：${var:当前温度}" TextAuraXIniExpression="1633" TextAuraYIniExpression="584" TextAuraWIniExpression="182" TextAuraHIniExpression="128" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" Enabled="False" ActionType="TextAura">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Name="buff调整2" Id="75f56b3d-54f1-44e1-b7f9-f08d89d1ee63" RegularExpression="] 00:08b1:(?&lt;player&gt;.*?)的“(?&lt;type&gt;高温\+1|高温\+2|低温-1|低温-2|体温上升的咒印\+1|体温上升的咒印\+2|体温降低的咒印-1|体温降低的咒印-2)”状态效果消失了">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="当前温度" VariableExpression="${var:当前温度}-1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="高温+1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="体温上升的咒印+1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="当前温度" VariableExpression="${var:当前温度}-2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="高温+2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="体温上升的咒印+2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="当前温度" VariableExpression="${var:当前温度}+1" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="低温-1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="体温降低的咒印-1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" VariableOp="SetNumeric" VariableName="当前温度" VariableExpression="${var:当前温度}+2" TextAuraFontSize="9" TextAuraFontName="宋体" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="体温降低的咒印-2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="低温-2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="5" LogLevel="-1" MouseX="" MouseY="" TextAuraFontSize="26.25" TextAuraForeground="#FF8000" TextAuraName="b3_tempreture" TextAuraExpression="当前体温：${var:当前温度}" TextAuraXIniExpression="1633" TextAuraYIniExpression="584" TextAuraWIniExpression="341" TextAuraHIniExpression="105" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" Enabled="False" ActionType="TextAura">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="6" LogLevel="-1" MouseX="" MouseY="" NamedCallbackName="DoTextCommand" NamedCallbackParam="/e 当前体温：${var:当前温度}" TextAuraFontSize="26.25" TextAuraForeground="#FF8000" TextAuraName="b3_tempreture" TextAuraExpression="当前体温：${var:当前温度}" TextAuraXIniExpression="1633" TextAuraYIniExpression="584" TextAuraWIniExpression="182" TextAuraHIniExpression="128" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="NamedCallback" ExecutionDelayExpression="1000">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-                <Conditions />
-              </Trigger>
-            </Triggers>
-          </Folder>
-        </Folders>
+        <Folders />
         <Triggers>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="左右刀位置" Id="6cbb5d04-098e-493e-9b3a-0a2edc344eb2" RegularExpression="^20\|[^\|]*\|(?&lt;id&gt;[^\|]*)\|天佑女王\|59F(1|2)\|">
             <Actions>
@@ -2331,7 +1891,7 @@
                   <ConditionSingle Enabled="true" ExpressionL="${evar:chess_line_2}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="18" LogMessageText="AT_Subtitle:C安全：上左二三：右2→上3→左2:40:200:-450:" LogProcess="True" MouseX="" MouseY="" TextAuraEffect="Bold" TextAuraFontSize="16" TextAuraForeground="#FF8000" TextAuraName="alphago_18" TextAuraExpression="C安全： 从C逆推：C→左2→上3→右2" TextAuraXIniExpression="${var:b4aura_x}" TextAuraYIniExpression="${var:b4aura_y}" TextAuraWIniExpression="763" TextAuraHIniExpression="50" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="LogMessage">
+              <Action OrderNumber="18" LogMessageText="AT_Subtitle:C安全：上左三：右2→上3→左2:40:200:-450:" LogProcess="True" MouseX="" MouseY="" TextAuraEffect="Bold" TextAuraFontSize="16" TextAuraForeground="#FF8000" TextAuraName="alphago_18" TextAuraExpression="C安全： 从C逆推：C→左2→上3→右2" TextAuraXIniExpression="${var:b4aura_x}" TextAuraYIniExpression="${var:b4aura_y}" TextAuraWIniExpression="763" TextAuraHIniExpression="50" TextAuraOIniExpression="100" TextAuraFontName="华文中宋" PartyOrderPlayerName="" PartyOrderPartyOrder="" ActionType="LogMessage">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:b4_move_total}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:chess_row_4}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
